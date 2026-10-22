@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conversations4Citizenship Podcast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,60&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..650;1,8..60,400..500&family=Kalam:wght@400;700&display=swap">
+<style>
+/* Single light theme by request: white page. Layout: one paper column like an illustrated research report; washes and ink drawings sit in the text flow, side notes are hand-lettered. */
+:root{
+  --paper:#FFFFFF; --paper-2:#F4F1EA; --card:#FFFFFF; color-scheme:light;
+  --ink:#1D1C19; --ink-2:#4A473F; --ink-3:#7A7466; --rule:#CFC6B3;
+  --clay:#D0714F; --clay-ink:#9E4A2E;
+  --ochre:#D9A24B; --ochre-ink:#8F6420;
+  --sage:#86A383; --sage-ink:#4D6B4B;
+  --blue:#6C8FB8; --blue-ink:#3A5F8C;
+  --teal:#4E9A80; --teal-ink:#2C6B55;
+  --rose:#C4625A; --plum:#8C6FA8;
+  --slate:#4C4E57;
+  --wash-op:1;
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --f-hand:"Kalam", "Comic Neue", "Segoe Print", cursive;
+  --noise:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper) var(--noise);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3,h4{font-family:var(--f-display);font-variation-settings:"SOFT" 60;text-wrap:balance;margin:0;color:var(--ink);font-weight:560;letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--clay-ink)}
+.hand{font-family:var(--f-hand)}
+.eyebrow{font-family:var(--f-hand);font-size:1.05rem;color:var(--clay-ink);letter-spacing:.02em}
+.small{font-size:.86rem;color:var(--ink-3)}
+.prose{max-width:68ch;display:grid;gap:1em;color:var(--ink-2)}
+.prose strong{color:var(--ink);font-weight:620}
+.num{font-variant-numeric:tabular-nums lining-nums}
+:focus-visible{outline:2px dashed var(--clay-ink);outline-offset:3px}
+
+/* masthead */
+.mast{padding-block:28px 10px}
+.mast-row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.mast-title{flex:1 1 520px;min-width:0;display:grid;gap:12px}
+.mast-title .grant{font-family:var(--f-hand);color:var(--ink-3);font-size:1rem}
+.mast-title h1{font-size:clamp(2.3rem,5.4vw,4.1rem);line-height:1.02;font-weight:600}
+.mast-title .sub{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.25;color:var(--ink-2);max-width:30ch}
+.byline{font-size:.95rem;color:var(--ink-3)}
+.logos{display:flex;gap:12px;align-items:stretch;flex:0 0 auto}
+.logo-chip{background:#FFFFFF;border:1px solid var(--rule);border-radius:10px 14px 9px 13px;padding:10px 12px 8px;display:grid;justify-items:center;gap:4px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 6px 18px -10px rgba(60,40,10,.35);transform:rotate(-1.2deg)}
+.logo-chip:nth-child(2){transform:rotate(1.4deg)}
+.logo-chip img{height:74px;width:auto;display:block}
+.logo-chip span{font-family:var(--f-hand);font-size:.78rem;color:#6B6455;line-height:1}
+
+.glance{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;padding-block:12px;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--rule);font-size:.88rem;color:var(--ink-2)}
+.glance b{font-family:var(--f-hand);font-weight:400;color:var(--ink-3);margin-right:6px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
+.nav a{flex:0 0 auto;font-family:var(--f-hand);font-size:.98rem;color:var(--ink-2);text-decoration:none;padding:4px 10px;border-radius:999px}
+.nav a:hover{background:var(--paper-2);color:var(--ink)}
+
+/* sections */
+section.chap{padding-block:56px 18px;scroll-margin-top:52px}
+.chap-head{display:grid;gap:6px;margin-bottom:22px;max-width:62ch}
+.chap-head h2{font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1.1}
+.chap-head .lede{color:var(--ink-2);font-size:1.08rem}
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,4vw,48px);align-items:start;margin-top:26px}
+.split.rev{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+@media (max-width:860px){.split,.split.rev{grid-template-columns:1fr}}
+.fig{display:grid;gap:8px;min-width:0}
+.fig svg{width:100%;height:auto;display:block;overflow:visible}
+.fig figcaption,.figcap{font-family:var(--f-hand);font-size:.98rem;color:var(--ink-3);line-height:1.35}
+.scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroll-x > svg{min-width:520px}
+figure{margin:0}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{position:relative;padding:14px 14px 12px;display:grid;gap:2px;isolation:isolate}
+.stat svg.blot{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.stat .v{font-family:var(--f-display);font-size:clamp(1.8rem,3.6vw,2.4rem);font-weight:600;line-height:1}
+.stat .k{font-size:.86rem;color:var(--ink-2);line-height:1.3}
+
+/* quotes and notes */
+.quote{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.35;color:var(--ink);max-width:40ch}
+.quote cite{display:block;margin-top:8px;font-style:normal;font-family:var(--f-hand);font-size:.95rem;color:var(--ink-3)}
+.note{position:relative;padding:16px 18px;isolation:isolate;display:grid;gap:8px;color:var(--ink-2);font-size:.95rem}
+.note svg.blot{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.note h4{font-size:1.08rem}
+.note .tag{font-family:var(--f-hand);font-size:.92rem;color:var(--clay-ink)}
+.kv{display:grid;gap:0;font-size:.92rem}
+.kv div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+.kv div:last-child{border-bottom:0}
+.kv span:last-child{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:560;text-align:right}
+
+/* controls */
+.seg{display:inline-flex;gap:4px;padding:4px;border:1.5px solid var(--ink);border-radius:12px 9px 13px 10px;flex-wrap:wrap}
+.seg button,.chip-btn{font-family:var(--f-hand);font-size:1rem;background:transparent;color:var(--ink-2);border:0;border-radius:8px;padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:hover:not([aria-pressed="true"]){background:var(--paper-2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-btn{border:1.2px solid var(--rule);border-radius:999px;padding:4px 12px;font-size:.95rem}
+.chip-btn[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
+
+/* mechanism cards */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+@media (max-width:860px){.three{grid-template-columns:1fr}}
+
+/* rhythm stepper */
+.phase-panel{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px;margin-top:10px;align-items:start}
+@media (max-width:760px){.phase-panel{grid-template-columns:1fr}}
+.phase-panel h3{font-size:1.5rem}
+.phase-svg .ph{cursor:pointer}
+.phase-svg .ph:focus-visible{outline:none}
+.phase-svg .ph:focus-visible .ring{stroke:var(--clay-ink);stroke-width:3;stroke-dasharray:6 5}
+
+/* themes table */
+.themes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+@media (max-width:760px){.themes{grid-template-columns:1fr}}
+.themes ol{margin:6px 0 0;padding-left:1.4em;font-size:.92rem;color:var(--ink-2);display:grid;gap:4px}
+
+/* mobility */
+.mob-cards{display:grid;gap:10px;margin-top:14px}
+.mob-card{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule)}
+.mob-card .l{font-size:.9rem;color:var(--ink-2)}
+.mob-card .r{font-family:var(--f-display);font-size:1.6rem;font-weight:600;font-variant-numeric:tabular-nums}
+.mob-card .d{display:block;font-family:var(--f-hand);font-size:.9rem;color:var(--clay-ink);text-align:right}
+
+/* future map list */
+.maplist{display:grid;gap:10px;margin-top:10px;font-size:.93rem;color:var(--ink-2)}
+.maplist div{display:grid;grid-template-columns:2.2em minmax(0,1fr);gap:6px}
+.maplist b{font-family:var(--f-hand);font-weight:700;color:var(--ink);font-size:1.05rem}
+
+/* table */
+.tbl-wrap{overflow-x:auto;margin-top:22px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.88rem}
+th,td{text-align:left;vertical-align:top;padding:10px 10px;border-bottom:1px dashed var(--rule)}
+th{font-family:var(--f-hand);font-weight:400;font-size:.98rem;color:var(--ink-3)}
+td:first-child{font-family:var(--f-display);font-weight:560;color:var(--ink);font-size:.95rem}
+td{color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+.rel{display:inline-block;font-family:var(--f-hand);font-size:.92rem;padding:1px 10px;border-radius:12px 8px 11px 9px;color:var(--ink)}
+.rel.c{background:color-mix(in srgb,var(--sage) 45%,transparent)}
+.rel.e{background:color-mix(in srgb,var(--ochre) 45%,transparent)}
+.rel.d{background:color-mix(in srgb,var(--clay) 40%,transparent)}
+
+/* typology */
+.types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
+@media (max-width:900px){.types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.types{grid-template-columns:1fr}}
+.type-card{position:relative;isolation:isolate;text-align:left;font:inherit;color:inherit;background:transparent;border:1.5px solid var(--rule);border-radius:14px 10px 15px 11px;padding:14px;cursor:pointer;display:grid;gap:6px;align-content:start}
+.type-card[aria-pressed="true"]{border-color:var(--ink);border-width:2px}
+.type-card .t{font-family:var(--f-hand);font-size:.95rem}
+.type-card h4{font-size:1.15rem}
+.type-card p{font-size:.86rem;color:var(--ink-2);line-height:1.4}
+.type-card .dot{width:16px;height:16px;border-radius:50% 45% 55% 48%;display:inline-block}
+.policy{position:relative;isolation:isolate;margin-top:18px;padding:22px clamp(16px,3vw,28px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px}
+@media (max-width:760px){.policy{grid-template-columns:1fr}}
+.policy svg.blot{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.dims{display:grid;gap:8px}
+.dims div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;font-size:.92rem;color:var(--ink-2)}
+.lvl{font-family:var(--f-hand);font-size:1rem;padding:0 10px;border-radius:10px 7px 11px 8px;color:var(--ink)}
+.lvl.hi{background:color-mix(in srgb,var(--sage) 50%,transparent)}
+.lvl.lo{background:color-mix(in srgb,var(--clay) 40%,transparent)}
+.lvl.mid{background:color-mix(in srgb,var(--ochre) 45%,transparent)}
+.badge{justify-self:start;display:inline-block;font-family:var(--f-hand);font-size:1rem;padding:2px 12px;border:1.5px solid var(--ink);border-radius:14px 9px 13px 10px}
+
+/* priorities */
+.prio{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 34px;margin-top:24px}
+@media (max-width:760px){.prio{grid-template-columns:1fr}}
+.prio > div{display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:10px}
+.prio .n{font-family:var(--f-hand);font-size:2rem;line-height:1;color:var(--clay-ink)}
+.prio h4{font-size:1.1rem;margin-bottom:4px}
+.prio p{font-size:.93rem;color:var(--ink-2)}
+
+footer{margin-top:60px;padding-block:28px 40px;border-top:1.5px solid var(--ink);font-size:.86rem;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap}
+footer .wrap > .cite-box{flex:0 1 46ch}
+footer .wrap > div{min-width:0;max-width:62ch}
+
+/* sites, figures, references */
+.map-frame{position:relative;isolation:isolate;padding:14px;border-radius:6px}
+.map-frame svg.blot{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.map-frame img{display:block;width:100%;height:auto;border-radius:4px}
+.fig figcaption{display:block}
+.fig figcaption .fignum{margin-right:6px}
+.fignote{display:block;margin-top:3px}
+.fignum{font-family:var(--f-display);font-weight:650;color:var(--ink);font-size:.98rem}
+.figtitle{font-family:var(--f-body);color:var(--ink);font-size:.95rem;line-height:1.4}
+.fignote{font-family:var(--f-hand);font-size:.95rem;color:var(--ink-3);line-height:1.35}
+.tbl-title{font-size:1.3rem;margin-top:44px}
+.tbl-title .fignum{font-size:inherit;margin-right:6px}
+.link-tbl table{min-width:560px;font-size:.98rem}
+.link-tbl th{font-family:var(--f-display);font-size:1.02rem;color:var(--ink);background:var(--paper-2)}
+.link-tbl td{padding-block:14px}
+.link-tbl td:nth-child(2){background:color-mix(in srgb,var(--ochre) 12%,transparent)}
+.link-tbl td:nth-child(3){background:color-mix(in srgb,var(--sage) 14%,transparent)}
+.refs{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:84ch;font-size:.9rem;color:var(--ink-2)}
+.refs li{padding-left:2em;text-indent:-2em;line-height:1.5;overflow-wrap:anywhere}
+.refs a{color:var(--ink-2)}
+.cite-box{display:grid;gap:6px;align-content:start}
+.cite-box .lbl{font-family:var(--f-hand);font-size:1rem;color:var(--clay-ink)}
+.cite-box p{font-size:.9rem;color:var(--ink-2);padding-left:2em;text-indent:-2em}
+.copyright{text-align:center;margin-top:26px;padding-top:18px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--ink-3);letter-spacing:.02em}
+/* svg text */
+svg text{font-family:var(--f-hand)}
+svg text:not([fill]){fill:var(--ink)}
+svg .t-serif{font-family:var(--f-display)}
+svg .t-body{font-family:var(--f-body)}
+svg .muted{fill:var(--ink-3)}
+svg .mid{fill:var(--ink-2)}
+.wash{opacity:var(--wash-op)}
+.ink{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round}
+</style><style>
+.mast-title h1{font-size:clamp(1.9rem,4.4vw,3.4rem);overflow-wrap:anywhere}
+.seasons{align-items:start}
+.split > *,.three > *{min-width:0}
+.hosts{display:grid;gap:2px;font-size:.95rem;color:var(--ink-2);margin-top:4px}
+.hosts .lbl{font-family:var(--f-hand);color:var(--clay-ink);font-size:1rem}
+.hosts b{color:var(--ink);font-weight:620}
+.logo-chip.wide img{height:46px;margin-block:14px}
+.seasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:16px}
+.season{position:relative;isolation:isolate;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.season svg.blot{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.season .tag{font-family:var(--f-hand);font-size:1rem;color:var(--clay-ink)}
+.season ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:.92rem;color:var(--ink-2)}
+.season b{color:var(--ink);font-weight:620}
+.contrib{display:grid;gap:14px}
+.rq{margin:0;padding-left:1.3em;display:grid;gap:6px;font-size:.93rem}
+.refline{font-size:.92rem;color:var(--ink);padding-left:2em;text-indent:-2em}
+table.narrow{min-width:420px}
+td[rowspan]{vertical-align:top}
+</style><!-- shared watercolour + ink filters -->
+</head>
+<body style="margin:0">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wc" x="-6%" y="-8%" width="112%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="8" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="17" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="1" seed="2" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0.62" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1.25" result="tex"/>
+      <feComposite in="shape" in2="tex" operator="in" result="body"/>
+      <feMorphology in="shape" operator="erode" radius="1.4" result="inner"/>
+      <feComposite in="shape" in2="inner" operator="out" result="rim"/>
+      <feGaussianBlur in="rim" stdDeviation="0.6" result="rimSoft"/>
+      <feMerge><feMergeNode in="body"/><feMergeNode in="rimSoft"/><feMergeNode in="rimSoft"/></feMerge>
+    </filter>
+    <filter id="wc2" x="-6%" y="-8%" width="112%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="23" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="6" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0.62" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1.25" result="tex"/>
+      <feComposite in="shape" in2="tex" operator="in" result="body"/>
+      <feMorphology in="shape" operator="erode" radius="1.2" result="inner"/>
+      <feComposite in="shape" in2="inner" operator="out" result="rim"/>
+      <feGaussianBlur in="rim" stdDeviation="0.5" result="rimSoft"/>
+      <feMerge><feMergeNode in="body"/><feMergeNode in="rimSoft"/><feMergeNode in="rimSoft"/></feMerge>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1,1.5 L8,5 L1,8.5" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg><header class="mast">
+  <div class="wrap">
+    <div class="mast-row">
+      <div class="mast-title">
+        <span class="grant">Crossings · Open-access academic podcast on citizenship, human rights and peace education · 2022 to 2026</span>
+        <h1>Conversations4Citizenship Podcast</h1>
+        <p class="sub" style="max-width:34ch">An Innovative Pedagogical Approach in the field of Citizenship Education</p>
+        <div class="hosts">
+          <span class="lbl">Co-hosts</span>
+          <span><b>Dr Stella Micheong Cheong</b>, Research Professor, Yonsei University</span>
+          <span><b>Dr Adam Peter Lang</b>, University College London</span>
+          <span><b>Dr Kamille Beye</b>, University College London</span>
+        </div>
+      </div>
+      <div class="logos" aria-label="Brand and podcast">
+        <figure class="logo-chip wide"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXEAAABQCAIAAABgYtLUAAAzi0lEQVR42u1deXxM1x4/986SyCIbEQklloaspEgkduIhilRbSz3CsxTVVtPS2vd9aaVqqfaV0hZBEUHtRVqEECKkREISsojIZJ259573x4/Ta5Y7ZyYTS9/8PvPxkZm7nOV3vud3fiuDMUYmkiAIgiDI5XL4s7KyMjU1NSkp6cqVK+np6dnZ2UVFRWVlZRzHsSxra2vr6Ojo4eHRpEkTf3//4ODg1q1b169fnzwKY8yyLMMwyEr/f4QRYhCqLC1dXvCw8rXXZBoOG+AEFqFyjFrLmKEKmYAQax27l5UYkzAFIEAmkyGEHj9+fOzYsfj4+DNnzmRkZPA8T/kQNze31q1b9+rVq0+fPi1btoQveZ6Hx1rp/4o4npfLZD//8MPSWg5+g96uLK1kDLABi1ApRp3l7FSlFVP+EZiCMRYEAZZ9amrqpk2bdu7cmZOT8/eUsyzDMBhjeCB5LAggDMPAfwCV4CeZTNatW7cxY8a89dZbMpkM7mVZK7f8H5EgCAzDBLZoYb9wid/bURWGMUWGkAqjjnLmE6XciikvM1FNDc/zDMPIZLK0tLThw4cHBwd/+eWXOTk5MplMLpcDCgiCwPM8QIYYp+BP+JXneYwxPEoul/M8f+TIkXfffbdNmzY//fQTwzAsy9LLO1Z65YUUjmNZ9kBCwrX09NpOThxC2PBHePIf6xn51ccUjuNkMll5efm0adPeeOONH3/8Ua1Wy+VyhmF4nuc4ThAE047QGMONAC4ymezy5cvvvfde165dL1y4AAKLqc+00ivJfCyLEFqyZAnDMAhbx+P/AFNg8cvl8tOnT4eEhCxevLiiokImkzEMw3GcGcpdvc/neZ5lWZlMdvLkybCwsPnz51sFlv8Hgnk/fvz42TNnMMa8wFGc1K3D9ipjCpxZZDLZqlWrunbteu3aNSKbVB9NdA/VoKPleX7WrFm9evXKz8+HP60z9E8l0K8tXrz4Cb8JCMO/kh+rOPOqYgqgBsMw48aNi4mJAdWpRWQT6Y0LISSXyw8fPtyhQ4fr169bYeUfLKQwDPPnn38ePXqUlckQQphneAEJnMEP5pCgQYKVHV5FTAEJheO4d955Z+PGjXK5/LkpOOC9crn8r7/+6tq165UrV6yw8g+WU0BIAUwReCRopDCFB2Sx8sIrhykAHyzLDh48eNeuXQqFoqbFE10CrXB+fn7Pnj2t0so/VZNy5cqVAwcOsCzLcxxCCPNSgCJwjMAxgsaKKa8gpoBe4/3339+9e7dCodBoNC+K7QBW+vbtW1BQwLKs1RL0DxNSli5dCuAC3wj8s/DxDJqIwMWKKa8WpsC5Y82aNRs2bDADUIjjCdiG4BuWZeVyufhLeliRy+V37twZNGgQfkrWCXvVCaTgmzdv7tq1C1T+TwTkJ2cf5lkoYZ6FFQZbd5ZXCFNgDV+4cOGTTz6Ry+Ucx9E/BdxMiOMJsQ3BSYrjOPIlGI/oD0FyufzEiRNz586VyWRWUeUfQOD0uGLFCrVaDTyjI6c8/WgYPSoVq5zy0pOczDRCqLKycuTIkXDuoBQKQHaF3cbT0zM8PLxdu3Y+Pj7u7u62trY8zz9+/DgrKyslJeXs2bNJSUkAVfQqEp7nFQrFkiVL+vTpExISArucddpeaSElKytr27ZtYiFFrE9hhKd+KFjbIUUQrPqUVwdTIJZn/vz5qamp9EIKgYbu3bu///77ERERTk5OEtdfu3Zt27ZtmzZtKiwsZFnW6HEGjk5wBJs2bdrRo0etE/aqCyksy65evbqiokKLzYicwsj0AwpiQJ9i9Xt72YmB4wnDMJmZmX5+flVVVZSaCwCUli1bLl269M033yRiBQi36KlTE3ka0afk5ubOnz9//fr1IOboPdGAagZ4ztHRcfTo0RMnTvT29iaxiNVnbghNYp4S+dO88GgS1iQW30hQJfH3eVFZHcT9JW3Q+2WNCikMw+Tl5fn4+KhUKiIdMyyLBaHNxt/qdongVFUGYwgZVMKhHi7sHG9WwIhlamRwgMSzxrJsDYnGkDMEPY2wfW7vpRkKQ62Cb6QbJie7x7x583R3D2lAGTVq1FdffeXg4EDSoEgvSBhET0/PdevW9erVa+TIkY8ePdKCFYImHMfZ29uPGjVq8uTJ3t7eElNiBDV1YAIOd1pfmp1pgWST0TvWugv1OaeMAUFSt7+6I0OurDlMkcvlsbGxJSUlumwm8Iz22QeEk79biwQO6+poQYtHKVZrjTm43unyrdZl4hQfFlm3oLvURQ2t94qTAYjbTLPlmwRJ0CS4RS+f6N4C8Z96X8HAszIyMnx9fdVqNRKlKTCIQ3I5x3Hz5s2bOXMmMj31CRnTlJSUPn365OTkAKyIw3zs7e2jo6M/+uij5s2bo6ceDdVfhEQdw3Hc6dOnT548mZqampeXx/O8q6urj49Phw4dIiMjFQoFzbvErcIY37x5MyUlJTU1NSMjo6CgQKVSCYJgY2Pj4uLi5eXl4+MTFBTk7+/v6upKZsVUW5gZcgE8Pz8//88//zx37lxaWlpubm5ZWRnDMI6Ojl5eXr6+vqGhoSEhIS4uLhZfP+JJRwgVFRX5+PgUFRWJ2QzklNZfH6nTqQenUjPApgzSOvywDFJxKKIOM/91C8gpsBsBM+Tm5p47dy4pKenWrVv5+fmVlZUKhcLV1dXb2zs4ODgsLKxp06ZEFK2O7KCFETdu3Lhw4UJKSsqdO3cePnxYWVkpl8tdXFwaNmzYqlWrsLAwPz8/Lb6tIcGENOnBgwdXrlxJSUm5devW/fv3i4uLNRqNTCZzcnKqV69es2bN/Pz8AgMDyR6vl1vk0Nz169dXVVXRCClwzZw5c2bOnAmrwlT+YxhGLpdrNJrAwMCDBw926tSppKQETNc8z9vb248YMeLjjz8maGJI0Fi/fn1iYqKE6wr8FBQUFBMTQzqPMf7222/XrFmTmpqqdf2BAwdWrVp1+/btJk2aSM8ivBFalZSUtGPHjsOHD6emphrdMOvWrRsWFvb222/37dvX2dkZ1UwyKjGjHD58+Pvvvz969CisZEPk4eHRp0+fUaNGhYeHa+GRpcQluVz+7bffPnz4UC+bEX0KYp++VUefwj/r8wZzlJ6evmDBAhDRpduwbNkyDw8P8eAcOXJk/fr1R48eLSkpMXSXra1tp06dxo8fP2DAANArmzdfRDrOzc3dunVrXFxccnKyxHKTyWShoaFjx47997//DXstvHf27Nl37twxyvZDhgzp3bu3dGtJkwoKCnbv3r1r167z588/fvxYuiO2traBgYF9+vSJiooKDAzUg7YY47KyMk9PTwLb0tIjQmjIkCEYY41GQ7KlmEdqtRpjvG/fPni4nZ3dhAkTbt68SYIDQMzTJY1GgzGOioqimcvOnTtjjEFPdPv27c6dO5OhB68ZIHCisbGxuX37NkhShpoNjsUY4wMHDkRERGiND3HGERN8KR5eLy+vGTNmPHjwgCSXwRYi8qhTp06RzpK2QXuIlCvOgAPUs2fP3377Taun1SQ4HpaUlNSvX1/PCZFlEUKBq450PY87HqvqdILreILrdFL70+UUF3yU++IqjzHmhb+bd/LkScpVff36dcIJN2/eJEpAQxMHf5JrevTokZqaStjPJIKmFhUVff7550RQ1ZoULW4h14SFhSUnJ5P10qJFC5rOLly4ULqp0KSCgoLp06fXq1dPDEkSPCweEJlM1rt374SEBPLAJ7oYWBs0gAJyfqNGjUpKSsTpl6pD0OdJkyYNHTqUBk3Edw0fPlwul9va2soNkI2NjVwu79evH9x14cIFDw8PELUMKT7kcrkEpoCvDcY4NTW1b9++YtmN8mhGUsbAn/Xq1YuNjbXgAoZmq9XqTz75hMwazQkLGkYuGzRoUE5Ojnnrx9B8rVmzRr++hmURQv7Lj3Q6i8MPV3U4wnU4wnU4qv3pdJRrdYj7/Io2ppw9e1YulyuVSkNsoFAo4N/09HQYnz179sBBj2ZwxFNWu3bt3bt3mzQshGfi4+ObNGlCzzDEXxRUAfBeQRBCQ0MJb+slWBGrV6821E6yh/38888NGzYkAEF5Ehc3jKDt2bNnCQcijPHo0aPhPEIjpJg6pvT7Kg2aiHl02LBhMD3SDe7VqxfG+K+//qpbt67E9UYxBTZbjPHatWvt7e0JR5ppbxMNeM+ePTMzM6s/qtDmBw8edOrUyezmgRQDktTx48er3yoYt4qKisaNG+s3GTAsQshvyZEOp3D7A1XtD3JhB7mwQ9qfDoe5wP3c1EvamHLmzBnpHZFYIUHK2Lp1K1nYJo0MuX7Hjh2UewABlHnz5pGHmHqihElkWXb//v0Y41atWkmr0qGdK1eu1Dt3BFAmT55sdpPEaEtMnJMnTy4rK8MYo6qqqtdff92onAJ9aN++vQVFYq1+0sv/JmFKZGSkIAitW7eWvlgaU2Bh8Dw/evToatqJ9CJL/fr1f//99+osYGhwTk4OpA1XKBTVaRi0SqFQxMXFVRNW4N7vvvvO4KAxLEKo5cIjYcdwyN6q0P1caDwXGs+HxnOh8Vzofi50Pxcaz4cd4Pz3cJ9dMBNTQBd74cIF9imZMSxwo1KpvHDhgtGFQABl4sSJYrA2770Mwzg4OGRmZnbt2tVsTCFNImvHIqpfIuAEBwefOnWKvX79ekZGBtE7ShNI1BaPu4Htq4Y023Xq1Fm/fn1ycrKpAQdavicajSYqKmrTpk0kN5VFlKkQf3D//v2ePXsmJCSY10iYEZVKFRkZmZaWBirw6jQMLIUcxw0aNOi3336D5MHmdRC8FpcvXy6tRn02LpkROAzBhDyPBI7hn0b9mO1Hq1Qqi4qKhg8fDupn8+I84F61Wj1s2LDy8nLpHoEG9LPPPlu7dq1CoaB0fZCwV5aWlr733nsFBQVmr0FQTsfExGzduhVSDlgk3gV4w8bG5tKlS0lJSWjjxo1GhRQAIU9Pz7KyMnIEeIFEKadAsxs2bOjs7ExzfNUrpxBoHzhwYPX3f2mRysbGBqQVUyVBuP6dd96xbAth0JydnTMyMsxTJMNMbd++XWprZViE0Ouzj7Q7gN/YXtUmjm8Tx78Rx7eJ49vs5Nvs5N/YybeJ49vt4n1+5j85a6ac4ujo2KdPHxq9IaUQN3fuXImZgu83bdpkwRmhPKEYklOgSfv3768JNoaXTpgwAWPMXrp0yWhzgRt69uxpZ2cHUI1eBQIsv3fvXnFxsbgGiBkmwM8++wyyydRQ8gd4S1VV1VtvvZWVlWVSbge4d8uWLTt37rRsC2FbKy4uHjlypNmoJAjC4sWLjfIM5pkncckaxGsQ5hDPIZ5HPGR4exJViLDAmMcGKpUqISHBbAlFa8BZll21alVBQYHeyDhi5J40aRJxB7cIP5vtpQX3VlRUfPTRR5RSttg4KP1e6GNISMiXX37J8zx748YNSlGqW7dur2LCger4WYBXxb59+1asWGH20ckkaCgsLBw2bBh9bgfgleLi4ilTptREYnA4mp06dWrr1q2mPh/WXkJCwuXLl43eS/xTePKv5kmySN5C+VMgxMxSa/vx48dbtmwhkr8u140fP76iosKkcwpRAhhaw9XZGhmG2b59e0ZGhtEQf5AhiA6RGHn12oZg23B3d4ctjWEYNjs722i3oUFBQUFGXf1fTmlFt3fEI1vssqHrGc0wTHFx8fjx40lAEKUynBjzdT1TjELYmTNnvvrqK8rcDjA1a9euzcvLo5duTMJZkEznzp1bVVVl0rLUymJtTE55AhlPPiLZROAQ/zStZHXikrUGx+xpIryxbds2XS9SUEXt27fv+PHj9PH3YJ0l1gASf2QpNSo8ZMuWLUadA4kU06BBgzfeeKNjx45t27b19va2sbEhhhTSZQIIYJaGXUT+8OFDo5yBMXZxcWnQoAH9oe5lFltAVNM7smJkAcl/4cKFubm5NEIKiS0wxEY0HAazMmfOnMGDB3t4eEi788LsFhcXx8bGUkr14vJJ0FmjWAnjcPv27YSEhKioKJBcKMWu48ePg6+zdMcZhsECnH2eus8yT1LkMwhhBiGMGBZZKnckIKPeJlGiAEB5SkrKzZs3W7RoIZ4mQHYoKUMvm4AsAFpLFxcXQRAKCwsLCgpMzQ0iIVjl5+eDuUqCT6Dxo0ePHjt2rK+vL/hMIITUanVOTs65c+fi4uLi4+PJ7gJLadWqVd26dSOMIS8rK5OWUwBTXF1da9eujV5xgrmBcmXNmjV77bXXnJycMMbFxcV5eXl3794tLS2FWYSAt3v37n3zzTc0Mj9MBs/z7u7unTt3Dg4O9vT0VCqVxcXFN27cgNwxgBfSKx/mqaSkZOXKlStWrJC+GOSaTZs25eXlGUU9YHHoiJ2dHcYYJHNkODpcS67ZsmVLVFQU/VIhQopxZQrGmioO0lw/SRPGaJfdYFjL5I4knQ0JCenWrVvz5s1tbW0fPXqUnJx86NCh7OxsGjd/okQ4ffq0GFMASU+dOpWUlETDNvAunucDAgJGjhwZERHRuHFjBwcHjPHjx49v3rwZHx+/efPme/fuVSd9KuwK6enppaWlEs+B1TF//vwZM2aIZXyGYZRKpbe3t7e39+DBg9PS0hYtWgRuPhzHDRs2bPLkyc/sNEbnGwYrMDAQvzREaffRe0qsV6/enDlzrl69Cp7OYtN9bm7ukSNHiouLiR/09OnTaV4BT65bt+7q1asLCwv1tjkxMRGcwY2eO+ACFxcXeJQhKxtIyCqVqkGDBkbPpOSNI0eOPH78eHZ29t27dw8cODBo0CDoHc3tbm5uMDhGDX8gBiYmJtI8mWGYOi61e6y91+Rr3CKW84nlfWIFn68Fn1jhyf9jBZ9Y3nct77mSn3BAMNXuo8vMPj4+hw4d0m12cXExhMXSqEJh3EaPHi02r0CToqOjaZxI4RUymWzp0qVa3CimoqKiSZMmUbZKr90H/t25cycybH2DJ9vb2xcXF1dVVanVavEsw34J2QLgm71797q4uPj7+1dUVBCvfFp9K0xDUFAQDTO9tJgCQzlw4MD79++L/cTEeS3FIwjbeKNGjYzyK/zavn178IUFxtI8S2Tc1qxZQ5OsBFq7YcMGCX8zIw7vOtK1jY3Nrl27dJ9z8eLFgIAAym6eOXOGxtQNF/Tr189o22D6pn328eQTuO5CdYuvhOar9X9afCV4LOXf32c+psA1rVu3LigogNnXmiZovJR7ns4chYeHE4aBf8vKyurXr290t4ZJsbW1PXDgANwLMbTkUbCMSavWrl2L6DwtDWHKTz/9JP0EhmEUCgWcjwgb6zoQwKqBmCm9DqLGLdUwE82bN4cHvQywYiqmwDgOHz6c3K4brwSzCIgLPT127BjlSgsODlapVCDdGBofmCFKlgXtevfu3SUij8DhHfJU0fhAQwBIVVUV9BE4A5p07949Nzc3aQEKxvnbb7816lYLzwdbD42QYlur1v3szNF7Bff53OsrhabL9X1WCK+vFNwXCOP2CBhjznRMgVFydnYG6NcrFwiCABGGYDuXniN4Y+PGjeFRhG1Onz6NqMNxf/zxR5gUiWUlCAK84osvvqCBFV1MgYYlJCRI3w5tbtSo0c8//1xaWqq14rS2XrKv6LactbOzk8ZUEGYePXpUWlr6KupQ4AAZEBCwadMmWEt6I7iAv2ExQ5cPHjwovVzhCQ4ODjt27HBwcOA4TiLxCliX1Gr1qFGjxowZIx2EDvN07ty5/Px8vaYW0BFu2bJFOuyddL9Zs2YffPABJPeFPhKzl1qtbtCgAcjwRvkVrIQ0ypQlS5YYzfoBCuP33hvm4dWo5DGPBNZgfZ9q233AjhYTE9OoUSONRqN3K4UDiyAI8+bNM+qKBZNSXFxMkgPAN3/88QeiiHThef7NN98cNmyYRqNRKpUSL4JWgabD39/fjFwq8PCmTZtK63qhv1lZWUOGDPHz84uOjt68eXN6ejrgFNhGCXTCeOodIhYCNKX1ZwihoqKi3NxcVAOO+c/HnLxq1Srwj6aRHmHO/vjjD+nzIQzr5MmTmzZtqtFoaM7PwLKLFi1ydXWVYFlQ1JeWliYnJ+saQWFG1Wr1ihUraEyDGOOYmBgwVerhAJbFGLdv355mciHno7Q6EEpt7N69W1pJCTZLpVL56aefYowZzPCcdNkwJHDIPDUlwzAcxzk6Oo4dO1YaOmE0GjRoAN5YRldvRUVFeXm5eOiuXLlCaYqeOXMmZZInmESZTPb555/rnUQaO1eTJk1ef/116W2SpE/NysravHlzdHS0n59fUFDQuHHjtm/fnp2dDTZvYm/W+yjWy8sLUfjRCoIASYxerYIY0PK2bdv26NEDTDmUhjeVSgUIbai/MKx2dnbjxo2jT4wGSF+nTh3IQWNUEL18+bLuUif+S3/99ReNkNKoUaMRI0ZIvA6WHEtHNKsFSm1IO7OAkDJw4MAWPq8zjICwzCig8BzCZuW4hmZ37NjR3d3d6DKGjaR79+40FgyO4yA7IjlW3L59WxqdSaqwtm3bIupgVLisb9++bm5uwAAmjQCI58B1Rrv/xM1ELgfbVkpKysaNGwcPHuzr69urV69Nmzbl5+eD2KI3kSXr4+NDo09CCNEnv3l5CFo+ePBgejSEMcrJyQHPHUPMAQsmNDTUy8vLpJSCsOcMGDCApkmAa7qQx3HckiVLaGx2GOOPP/64Vq1ahhgRvty1axeoCQUDBKoiBwcHo0JKZmambqkNQxdPnfr5k1JQWgXYtUMKn56A4JHYHDbo0KEDTeVvOAVDeDcNz5BSVgDN+fn5RjEFIQT5KOi9TsCTyMnJqU2bNsj0qCVA8PHjx7u5udGcnuCMQ/L1Ar6oVKrDhw+PGTPGz89v4sSJUHdYd6LlkI7B6AsQQocOHaKR8F8qgt7C/FFCO3BDfn4+DL2EnIIQateuHakwTb9nMgzj7+9vb28PeWH18h98ef/+fa2Ww4aza9cuo5WkYRvx8vL6z3/+IyGkALdNmjRp3LhxRqEQEnoaehTg3VdffWU0WTq0vH///kFBgRzPy2WyJ5AhR4LAPK3E8XRYiM+bufoUGExfX18aB2K4ALLtmHrSr6ioALWj0Rsp07Xp6jtatGhx+PBhU+UUWPl16tSJjY0dOnSoQqGgD/4gQEzOTYWFhd988833338/evToWbNm1a1bV6wflLdt29Z4LIYgsCx7+/btkydP9ujRoyZSqNaQkIIxdnNzg5VgErSD4s3ozDVq1Mg8x2IXF5e6detKYIq4GeKWA8wtWrSIRkjhOG7SpEmOjo7Szq8Mw4A+xaRtXy+TPHjw4LvvvjMqpECXP//8c4QQ9B7zT+URDJ6z6NmEtMwTnzezTt6wJCDLHyUplUozMEWtVhuN4YRnijNImjTyderUMVsPwPP8kCFDrl+/vmDBArFHNT00w7SCzqWysvLrr7/eu3fvunXrIiMjCSywgYGB4HRP4/W0evXqmvDNJ3H0NXHw8fT0hEpmJskp5JAsTdJnAWmWtbW1NXqZ1lYPB90DBw4YjcqDX93d3Y1qJcVTYJQk5gh20djYWJVKJV3HEpRcERERoaGhRGv+92FHo3MIEp2DqiOnODo6olc/uKSa6kWwH82bNw/cKcxL8ga2ZLA53Lt3r2/fvrGxsSQCm7WzswsPDzfq4wDcfOjQodOnT1cz+kDv/gYHM0NhONXBFDc3N5NUy8S7kXJfMvtQRhPlrFv/BWO8YMECSlX/xIkTXVxcaFR6JKpdmiQMVTKZrKioaMOGDSYKKU+mG/OGrciaamEKyR35HI7tSqXSqMMXtEe6jIHE0BUWFlYfVmbOnPnrr782btwYVpx5kYqALMA5H3744caNG8HmzSKESBZomqPERx99RFxfqj8H0KaVK1fOnj378ePHgJqWRRZwwDH1gSCAGL0LvHLNaJVKpdIqc6OXIIgLrgFYP3LkyPnz52nMtC4uLuPHjzeqPybOxNJEE7m+YcOGhw8f0ggpYWFh3bp1E5v2GYRYLPogxKJn/8SIxYh5uT0ZatWqBZxjFMQhx4hJBJo4+uQkRpVZFy9enDp1qouLC7gpkjBokyQXkgZhwoQJly9flslkLELoX//6F81uBuel5OTkL774wiLJROCQn5SUNHXq1Hnz5gUGBi5fvhyK1FkQWczQZiGE4NRqtAEpKSmm5mcBienOnTtFRUUSyhRdTSF8A0KKUds/KPlBeWbU/0pOQdLeX2AU+Prrr42GR0Nfpk2bpiU8Pi5HFSWosBQVqFBBKSosQYUlqECFClSoUIUKS1BhKaoqQSUVL7XyTi6Xu7u7S08Q9BoS+tHrJUnSlqSkJFRtlw6AFVdX1yVLlqSkpCxcuNDPz09cT4OkAaHhbcAjnuc/+eQTjLGc4zgXF5eBAwdu2rTJaE4qMDosX77c19c3OjrakD8iPaDk5eW9++67giAolcq7d+9OmTJl3bp1kyZNGjNmDOB9TRfrk9DCODo6qlQqQ8seJvX06dPl5eW1atWi90SCp4Hjv9EBh+oNoBuTyWQnT548ffo0jZDi6Oj4wQcfSAsppFwcaGckLFxwjAoICNBr4QKu+OGHH3Jzc6XPxSCktG7dunfv3sRdCIZtSiQaHIqUcmQIxhkGVXGomTtCyJLFki2rFpTJZE2bNv3zzz+lMYVl2ZSUlEuXLgUHB1NaPGCQ4+PjQRKsvvKB6GgbNGgwbdq0KVOmJCYmJiQknDhx4tq1a+DIR65ExszecOA4ceLEqVOnEIgDNNEZhMNAOoJQBcrqGXrjF/Ly8oKDg0mjxfUGmzZtGhsbS4IOtOqTmZo339QMr6Cw9Pf3l1Zdw/N//vlnkzLLw1HC19fXpIfDIEOJMpqovMmTJxvtNfzasWNHGha8ePGiRIkSqVIbOp3avn27Rcq5mFqLAwpIGWVXuODq1auUerf09HQSkYgxXrp0KTIWhgbj0L9/f0ORR7qDDBE3/v7+xkugS9biMPRw8TdZWVl79uyJiYkJDw8HxTaiiKeHTo0ePRqRuenfvz+lbpL0CmqdiZmevvXJycngbqf1RnFVmmbNmomR5blhCjx/xIgR0oo9wNYWLVqo1WqtcG/p0ouQV5wmGAz4Fe46e/YsoksdYGdnd/fuXaNZqUn0sHQNKqi5lZycTAJSTSu18exwtWzZUm+kJcdjDYc1vOSHwxz/8mIKtOf3339H1DGEW7dupY8hhMwbZsQQSpcKEf+pW1w0Ozt727ZtvXv3NqpJgJ9atmyJyCEqOTnZ1FpkCKFevXqlpKRooSmYqUi8NrSVdKCqqmrlypWgOjU0QFrIsnbtWshTDR1+Ppiybds2RBFAjBCaOHEiDbACZ1y/ft3JyUlaEwZjGxAQACMJjYfKhzRCCqhmjXaZchjhJ9g/KisrtZYfcGGLFi0ohZTvv/+eZv8UMBYELAhYeHXkFGDO0tJSk3IdHDx4kCbXwTfffIPMzXWgF1C0CpLqZjPQwpfdu3fb29sb1eA6Ojoi8fSMHTsWmZ7lyMbGZuzYsSAbS9PDhw+/++67oKAgvYZSaWTp2bMncZF4DmcfOJrReDTAW2bMmCE+2hBUFacUwBhfu3aNJifLk6wi06bBMhYEgRS7Miqk2NraUpbOgFZBFiJpjziGYVxdXdPS0gj3i/PCLFq0iFJI8fb2rqiokC7nIgjPCCMgwvDCK4Ap5uVkksvly5Ytk87J9OGHHyJqp02jmAJNzcrKIompJFYHbGnQPGiG8WMdeQ3P84WFhR4eHiYlshZzUkhIyPTp03/99derV6/m5OQUFhbm5+dnZGScOXNm3bp1Q4YMIY6MJqldwaMRaqpC52saU8j1EChEmedtwIABUOXbkJCyYcMGZ2dnRJfsQyaTwdNgOqG6kHRL4Nfo6GjK/sIwxsXFIYqsTqC3/umnnyDDCBE5CaDQIO+aNWukhRSy3nke5z7CuY+w+mk/dGHlpcWUEydOUEIAGbSAgIDVq1dfvXoVTvqCIDx69OjcuXOzZs2icUmlxxSCEeHh4QihWbNmwYTC5mcI66uqqjQazerVq40yoVKpRFoztG/fPmRiKVmxblXsWOHs7Ozk5KRlGDK1wiO0ZNSoUeJ18twwhUaFIX6Xra3t4MGDt27dmpKScv/+fYDU48ePz50718/Pj1I6EzcbVA8pKSlGvZJgJ1AqlTdv3qSs7wXX3L17Fzx6aeJI4cA8adKkxYsXf/DBBxC0QuNQxzBM/fr1VSqVhJACmZayi/DU7bjNbPzap7jxNBy6UpgaL9x+qAdWXkJMIdtzcHCw3nUhvXwYhvHy8vL392/ZsiW4Eeju3NXEFPgGkk7B2gwODoZcc2INhpjI2uncuTMyln3S3d0d6b7v008/RaZXKiM1KHRfCXKg2dWnfX19IfU04cXngCmES/71r39RTqrWNQ4ODk5OTiBkmSSdwXMgewvsIUOGDKEUUgYPHmxSZ6GPXbp0oVkAegVY+pFZvHixhJACeHE4BTf4CLMjsfOH2ONzwWu24DVfqLNA8F0r7PtLG1ZeTkyBVu3evdskLIDYX70Lx1QPVwlMgT+XLVtGLiMt7NKly48//ijOrCqmu3fvRkdHS48z/NShQwe5rifMsmXLrl+/npCQYFJRO63iBuLFAwNtqv0cvDCcnZ137dplb2///OsfwmguW7bs6NGjxE1D2oOArDqe50laPNCDgOxAwxAcxw0dOjQ0NBTcf9LT03ft2kWTOkAul4MKxiSXCpZlo6OjaRJZPMkMKFLr0HQKvODc3NwkIo8EjFgGnb+N3vkGsQrU0AthGZYpkcwGyW1QHVuskaGYs9jZnulYn4GLX1qCRRQVFdW1a9cTJ05Q+pKQnGmEyQlCWaph4BG2b9++KVOmkALYxCXy5MmTJ0+edHZ2DggIaNmypZeXl4ODg0ajyc/PT01NTUxMBF8tCV87aHmXLl2QoWzs7dq1QzVWHpgGUKACwLFjx3Q33ucjp5C7wOnTDMHNVBdb6HWdOnUePHjA8zxoUmB/oPF3iIqKMkMbLQhCWVkZBFjXREE4aPmsWbMMCSkCxryA1RzuvBQ7fiQ0niM0mi80WSq8/qXQch3v/x0ftJVvt5NvtZvrf4Ir47CAnxiDXk45hdiA0tLSatWqZVmPTfqE/lpyCozV1atXHR0d9T4EbL70YrjeAVEoFCkpKazuDxhjBweHhISEtm3bVsdTtjpILwiCQqHYvXs31CJ6UakVQFaaO3duWFiYqbljTChNIDpZgK9HvXr1wG8yMzPzl19+oYnKY1nWVCGFCBF2dnbz5s0zKbMU/QAKglCvXr2PP/7YUOJOQUAsg87eRpfzcd26iLFFSnukdMAKe6y0R/Bh7bCTE7qH0NlHmEFIeLmjfqDXLVq0iI2NhXm0yGPpi2HqCkEQ4RkVFWXINRzUQOIqmoT0Jl7SXbMY4969ewcEBLCGRsTNze3o0aM9e/aEtfTczh0glTk5OcXHx0dGRlJWvashAkFDLpfv3LmzYcOGNdcYeAvHcQsWLOjXrx94OjMMs2zZssrKSpqovN69e7dp04Yy4a6urD58+PCIiAiLdxDa9uWXX7q4uBgKX4COnc9GrB0gCFY4YKU9UjoghT1SOiClPbZxQEp7ZOOAr1W9GumQIeriP//5T0xMDGzM1VxBwAPt27cHZb9JZVgRQhUVFUOHDr116xY59UhoMLTCR43mIYFlwrLs3LlzMcasBNDWrl07ISFhwoQJJCC6ptEdZsLX1/f06dM1weJm7zmenp4HDx708PCoiSbB5qDRaD777LPp06eT1LDZ2dmbN2+mTB0AhRrMbgDG+L///S900FJSIejjRo0aNXjwYImoFlhqjzTYBkDkmQ9W2GOFPVLYI4U9tnVAZQoIp3w1YIXn+RUrVkyYMEGj0VDGvkgwoYODw08//WQ0RlFXAGFZduPGjYcPH7axsbGggkY80RzHzZo1q1WrVoIgsNLdYFl27dq1W7ZscXNzI7kSamiXBoXfiBEjEhMTwYX0JclTCScgPz+/48ePQ50jCwpusP9wHDdz5sxly5ZBr2FLX7VqVXl5OWV+o/DwcLPz78Fce3l5/frrr/b29hYZeQCUbt26rV+/3mhsNELIyREpHLDy6Xnnyf8dnpyDlIAsDsjRFr0qRAohr127du7cuWbnQIIpRght27atcePGjx49MuP2YcOGDRo0COocW3AJgw5FrVYPGTJk9uzZTybaqA4PhJSMjIx3331XLFBYZFGJTWhNmzbdsWOHUce+56mj1dXX5uXlRUZGkmNadQaBzG7t2rW3bNlCHKWB+e7fv+/o6GhUywtr9fjx49XvI4zqqVOnIIuV2b0jLqTdu3eHUmrSkVDglnLojtBsCx/6Kxd6gOtwhOv8O9ftHBeRrOmdqul7S9P/nubdPE2fR+qDah5jzL3cOlq9K2j//v3e3t6Ec2i0rWR12NnZQQ1JiOqW7i/cAiXiYE7J+M+ZM4c0u/q6M4JNI0aMIL7jGGNEv5wwxgcPHoR80aT15oELDBbpVd26defMmQO1eGmC8V4Ipoj5ZvXq1aQukqkeBHDSIbf06tXrxo0buh59YGyiMfd06tSJZqnQT3RaWhqUiTAVWcQO6aNGjSIOmkZDezDGKjXu/Rvf7hDX5RTXNZGLuMj1uqaJTNf0y9K8dV89qEg9qFQ9okJdJPx9yyuBKeKBLSoqghxI4hmERSQm0IySa9q3b3/p0iV4iFqtbty4MQ2mbNy4UWz3IW6Qv//+e0hISHWEA5hluMvW1nb58uXEgPjEKEG/nMioxcfH9+3bV8ubi1QqY/QRqXqntUh8fHwWLVpEPG0oVz6M1L///W/wHDVUiUahULAs27dvX0thinhuMjMzx48fD3nYxAirdwRI98Vi5xtvvAFR/1qVIgVBKCgocHFxoRRSIGrDUh2E51RVVc2ZM6d27dpiQ6OhxgBKkq55eXlt3rzZUOFLCYe33x4IwSe5iCRNnxRN5A1NvzuaqBz1O4XqISr1sHJ1n3J1gobHGPM6Pm+kgKQh3oN/TcUURpLgsSR23OhjyQTdu3dvyZIlbdq0MRohFRYWtnnzZngyOBbk5OQYLRwKj42Li9PlCviT5/n//ve/IO+I93ia9SvGsqioKIgf1qoUjExlOHJzWlra4sWLw8PDoZMmUZMmTUaPHp2QkEDiXClzBYgxZdCgQTTvioiIsOCS0+KPW7duzZ49GzKtUJKzs/PAgQP37dsHvKLlRw9dW7hwIUJIqVRKpIYFMG3Xrh2lJ74Z4lhGRkZMTEy9evW0WFZsZRT/5OHhMX369Pz8fFMnlMDKL3l8l1RNj1uaAfc07+RrBj9WDylTv1Wu7lem3qrmxICiJafQkGXlFIKnlJhC7Cnkm+vXr2/evDkmJuatt97q3LlzSEhIhw4dIiMjJ06cuGHDhqtXr2rdKwgCuF/SpKM/e/asXrYn3/A8f/DgweHDh3t6epq0eL28vMaNG/fnn38akgMYM8zdYodRhFBWVtbFixeTkpJSU1Pv3LlTUFCgUqkgJQSocGrVquXq6url5eXj49OqVat27dr5+/uTrPFmZHIDZeSnn366d+9eCT9FUD126dLl22+/tXj9EJJiD/5/6dKl33///fz58zdv3rx//z6MABjLatWq5ebm5u3tHRQUFB4eHhYWRmIptVoFqtnc3NxmzZpVVFBlSdy7d2+/fv0s3jsAO3hmQUHBvn379u7de+HChQcPHuhe7Onp2bZt2/79+7/55puQc9O89ggIsQhdrsQ7y4UMVqhSIIZFtgg1ZpkBcllbGYOfLc8Bb0lMTOzSpQtRZBqyajEMc/Xq1ebNmxstxgQXpKamQsIwaWOZTCZLSUlp1qyZ9GPJryS1MGVJTLgRUqnK5fKpU6cuW7ZMInMrtMrW1jY9Pb1hw4aGWiWeoJKSkosXL/7xxx/Jycm3bt3Ky8srKSmpqqoChatSqXR0dHR3d2/SpElwcHB4eHi7du1AgIUB132+OZhChgnYTgsOSktLVSpVeXk52IlsbGwcHBxq166tNYik3qrZak5K/58acg8VD4JW11QqVUlJSXl5OeTEdHBwcHZ2FrsOGuo7sH5eXl5SUpK0uYdkP+3evXuN9k7sTV9SUnL79u3MzMzCwsKqqiobGxt3d/dGjRo1bdqUZAMDRjR/ThGCzuRhnI8RxqgOizwZBj0tI6ZLlZWV9+/fp6kb7eXlRe/AqVarc3JyaLjL6GMBDhITE1977bUGDRqQ9QzMg0Qu12I/SbHtmciwPj4+WVlZEok+4afmzZtfv35dGrZIcR8t9C8rKwPuhfVbq1at2rVrk1OwXqnCYpiixXmkerP08iNr6Z9UZoXoDiRGgAR0VGfJvajeAVJIgBdI/haxBgoIMTrwQbDmlSNweDt58mRERERQUNCxY8ecnJxM9XKCh6xbt27ChAnSAUQgwrzzzjs7duyglBaJ2kt6/cIU0zCwBRxAtFiNlI/VOuBVx+dHYjhodpLn4Ikghm0tl3xTu29SdbjnELVArDniM7O445RB/bTsBIPw1L8W8IU1tquZwag0m2U1H8txnEKhOHz4cFRUFM/zFy9ejIiI2LNnj5eXF/2RHwAlKytrxowZEhKKmLp164ao63VoTZ/e9WvSFFtATrGSlaxkCAv2798/cOBA8KMFl+hGjRr98MMPXbp0QU/TzesV24n4IJfLCwoKevbsKV3egJyIlUrljRs3vL29TSrjbUFirXNvJSvVEKDs3r174MCBABxgnpPJZFlZWd27d58yZUpBQQFxftOKsiHnaLlcfvbs2Y4dO0I5LmkhBR7VuXPnFwgoVjnFSlayPIG65Jdffhk6dCh6Gk8sXvmkJnx0dPTbb78dGBioq+WtqKi4cOHCd999B0VvaE49oGrZs2fPgAEDXmCsnBVTrGQlSxIICD/++CPUcjGklxGrWps1a9ayZcvXXnsNzGePHz/OzMxMS0vLzMzUgiFpQBEEwd/f/9KlSzWhu7RiipWs9GIABSK8x4wZA9lwpB0CpAtRguKf0mcCLD779+/v27evxf2VrJhiJSu9GEBhGCYzMxMq0tJXINVV0xLvBMpXA6AMHDgwLi7uxQKKFVOsZCXLw8rOnTuHDh0Ka7v6hY2NErylQYMGly5dgpjyF3jwQVa7j5WsZMnlxLIY43fffXfv3r2WykRj9I2CINja2sbFxdWtW7cmEoBaMcVKVnrBsMJxXGRk5IkTJxo3bmzZDF66Egpkbo6LiwsJCXnhpx4rpljJSjVCoN1o27ZtYmJi7969IXLXsqsdnJt5nndzc0tISIDMzS8DoFgxxUpWqilY4Xm+fv36CQkJS5cutbOzg5ip6odEAZpAkoGOHTv+8ccf3bt3fxkyN//dQquO1kpWqiEiQbOpqakzZsz49ddfCeL8nRWNGkpIOTqEUJ06daZOnTp58mRQ0L4kEooVU6xkpedBZM0fO3bsyy+/TEhIIEZisCITcBEHZ6KnwXsER4Dq168/YsSIDz74wMvLC4kys1gxxUpW+n8UWBBC165d27lz58GDB69du0aZeQsh5OXl1b59+wEDBvTp0wcy2r5s4okVU6xkpRcgsIhzYqSlpZ0/fz4pKenGjRvZ2dlFRUXl5eVwja2tbe3atT08PJo2bRoQENC2bdtWrVq5urrCjWakRnye9D/3UDifkP++IgAAAABJRU5ErkJggg==" alt="Crossings logo"><span>Brand</span></figure>
+        <figure class="logo-chip"><img src="data:image/png;base64,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" alt="Conversations4Citizenship podcast logo"><span>Podcast</span></figure>
+      </div>
+    </div>
+    <div class="glance">
+      <span><b>Launched</b>Spring 2022</span>
+      <span><b>Catalogue</b>44 episodes, five seasons, about 45 minutes each</span>
+      <span><b>Reach</b>5,139 downloads in 99 countries and territories (Simplecast, 5 October 2026)</span>
+      <span><b>Website</b><a href="https://www.bridgecitizen.org/">www.bridgecitizen.org</a></span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#overview">Podcast overview</a>
+    <a href="#usage">Usage</a>
+    <a href="#episodes-perf">Episode performance</a>
+    <a href="#contributions">Contributions</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#listening">Listening to Learn</a>
+    <a href="#findings">Findings</a>
+    <a href="#references">References</a>
+  </div>
+</nav>
+
+<main>
+<!-- 1 OVERVIEW -->
+<section class="chap" id="overview">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Part 1 · Podcast overview, 2022 to 2026</span>
+      <h2>Scholarly conversation, carried by voice</h2>
+      <p class="lede">An interview-based podcast that links university research on citizenship, human rights and peace education with practitioners and activists.</p>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <p>Conversations4Citizenship launched in spring 2022 as a public scholarship project. It was co-founded at the UCL Institute of Education by Kamille Beye, Stella Micheong Cheong and Adam Peter Lang with Dr Rowena Azada-Palacios of London Metropolitan University, to explore past conceptions of citizenship and human rights, how present understandings shape society, and what future frameworks might look like.</p>
+        <p>Between 2022 and 2026 the podcast released <strong>44 episodes across five seasons</strong>. Each runs for about 45 minutes in an interview or panel format and comes with show notes, a written transcript and links to further reading, so that listeners receive a <strong>multimodal text rather than an audio file alone</strong> [1]. Guests range from founding figures of citizenship and critical pedagogy to youth activists, lawyers, parliamentarians and early-career researchers across Europe, the Americas, South and East Asia.</p>
+        <p>The podcast now sits within <strong>Crossings</strong>, a media platform at the intersection of citizenship, peace and education, alongside the Becoming Bridge Citizens series.</p>
+      </div>
+      <figure class="fig">
+        <svg id="themeArt" viewBox="0 0 560 420" role="img" aria-label="Four thematic clusters in the catalogue with their leading episodes"></svg>
+        <figcaption><span class="fignum">Figure 1.</span><span class="figtitle">Thematic clusters of the catalogue, 2022 to 2026</span><span class="fignote">The four drivers behind the most-downloaded episodes, with their leading episodes.</span></figcaption>
+      </figure>
+    </div>
+
+    <figure class="fig" style="margin-top:34px">
+      <div class="scroll-x"><svg id="timelineArt" viewBox="0 0 1060 360" role="img" aria-label="Timeline of seasons and selected episodes, 2022 to 2026"></svg></div>
+      <figcaption><span class="fignum">Figure 2.</span><span class="figtitle">Seasons and selected episodes, 2022 to 2026</span><span class="fignote">Season spans are approximate; dots mark episodes named in the sources.</span></figcaption>
+    </figure>
+
+    <h3 class="tbl-title">Topics and speakers by season</h3>
+    <p class="small" style="margin-top:6px">Selected episodes named in the Simplecast audience report, the Listening to Learn manuscript and public podcast listings. Episode numbers follow the published titles.</p>
+    <div class="seasons">
+      <div class="season"><svg class="blot" data-blot="slate" aria-hidden="true"></svg>
+        <span class="tag">Season 1 · 2022 · foundations of human rights</span>
+        <ul>
+          <li><b>Prof. Hugh Starkey</b> on citizenship education and human rights pedagogy</li>
+          <li><b>Seung Pyo Hong</b>, international lawyer, on transnational law and human rights frameworks</li>
+          <li><b>Ambreen Lakhani</b> on decoloniality and teacher agency</li>
+        </ul>
+      </div>
+      <div class="season"><svg class="blot" data-blot="sage" aria-hidden="true"></svg>
+        <span class="tag">Season 2 · equity and inclusion</span>
+        <ul>
+          <li><b>Dr Victoria Showunmi</b> on intersectionality, race and gender in education</li>
+        </ul>
+      </div>
+      <div class="season"><svg class="blot" data-blot="blue" aria-hidden="true"></svg>
+        <span class="tag">Season 3 · 2024 · AI, resistance and activism</span>
+        <ul>
+          <li><b>Dr Henry Giroux</b> on a pedagogy of resistance</li>
+          <li><b>Dr Patricia Leavy</b> on arts-based research and social change</li>
+          <li><b>Parishrut Jassal</b> (India) on AI for peace and sustainability</li>
+          <li><b>Dr Felipe Acuña</b> on neoliberal education and teacher subjectivity in Chile</li>
+          <li><b>Dr Rupa Huq MP and Ajmain Naklib</b> on Bangladesh’s democratic uprising and diaspora youth</li>
+          <li><b>Prof. Sarah Stitzlein</b> on cultivating truthful citizens in a populist era</li>
+          <li><b>Prof. Tatsushi Arai</b> on functional coexistence and sustaining peace amid global conflict</li>
+          <li>Hosts’ reflections and 2024 year in review</li>
+        </ul>
+      </div>
+      <div class="season"><svg class="blot" data-blot="clay" aria-hidden="true"></svg>
+        <span class="tag">Season 4 · 2025 · knowledge and youth power</span>
+        <ul>
+          <li>Youth in action: democratic resilience after martial law in South Korea</li>
+          <li><b>Dr Shone Surendran</b> on Vygotsky, AI ethics and epistemic pluralism</li>
+          <li><b>Dr Tara Bartlett</b> on youth agency and school participatory budgeting</li>
+        </ul>
+      </div>
+      <div class="season"><svg class="blot" data-blot="ochre" aria-hidden="true"></svg>
+        <span class="tag">2026 · Crossings era, Episodes 40 to 44</span>
+        <ul>
+          <li>Ep 40 · <b>Ken Katayama</b>: data sovereignty and the AI black box</li>
+          <li>Ep 41 · Unite before you ignite: lessons from Nepal’s youth-led democracy</li>
+          <li>Ep 42 · <b>Dr Magdalena Fellner</b> on university-prison partnerships</li>
+          <li>Ep 43 · <b>Prof. Tristan McCowan</b> on universities as bridge actors for climate justice</li>
+          <li>Ep 44 · <b>Dr Rita Shome</b> on Indian youth’s non-violent resistance as “cockroaches”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 USAGE -->
+<section class="chap" id="usage">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Part 2 · Usage console · Simplecast, all time to 5 October 2026 [2]</span>
+      <h2>A global, desktop-first, study-oriented audience</h2>
+      <p class="lede">The listening data look less like commuter entertainment and more like seated academic work.</p>
+    </div>
+    <div class="stats" id="statTiles"></div>
+
+    <div class="split" style="margin-top:34px">
+      <figure class="fig">
+        <svg id="geoArt" viewBox="0 0 600 470" role="img" aria-label="Top ten countries by downloads"></svg>
+        <figcaption><span class="fignum">Figure 3.</span><span class="figtitle">Top 10 countries by total downloads, all time</span><span class="fignote">Share of N = 5,139 in brackets. After the report’s Figure 1.</span></figcaption>
+      </figure>
+      <div style="display:grid;gap:18px">
+        <figure class="fig">
+          <svg id="donutArt" viewBox="0 0 520 330" role="img" aria-label="Concentration of total audience"></svg>
+          <figcaption><span class="fignum">Figure 4.</span><span class="figtitle">Global reach and concentration of the total audience</span><span class="fignote">Three countries generate 61.0% of downloads.</span></figcaption>
+        </figure>
+        <div class="prose">
+          <p>The United Kingdom (1,161 downloads), the United States (1,096) and South Korea (879) generate <strong>61.0% of all downloads</strong>; with India and Canada the top five reach 72.1%. A long tail of 94 further territories includes the Philippines, Japan, Bangladesh and Singapore. This tri-continental base mirrors the hosts’ institutional networks and makes the podcast a working bridge between Anglophone and East Asian communities of citizenship education [1].</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="split rev">
+      <div class="prose">
+        <p><strong>Desktop leads mobile.</strong> Commercial podcasts are typically 75 to 85% mobile. Here desktops account for 45.6% of downloads against 41.9% for phones and 12.0% for tablets. Web players and desktop browsers carry 38.6% of all listening, with the Simplecast web player alone at 28.1%, second only to Apple Podcasts. Listening is reaching people through course pages, research blogs and shared links.</p>
+        <p><strong>Professional social networks matter.</strong> LinkedIn (73) and Facebook (79) in-app browsers bring listeners with no paid promotion. On Spotify, 73.9% of impressions in the last 30 days came from search and none from algorithmic recommendation: discovery depends on listeners’ own initiative [1].</p>
+      </div>
+      <div style="display:grid;gap:18px">
+        <figure class="fig">
+          <svg id="deviceArt" viewBox="0 0 520 220" role="img" aria-label="Downloads by device class"></svg>
+          <figcaption><span class="fignum">Figure 5.</span><span class="figtitle">Downloads by device class</span><span class="fignote">Total = 3,006 device-attributed downloads. After the report’s Figure 2.</span></figcaption>
+        </figure>
+        <figure class="fig">
+          <svg id="methodArt" viewBox="0 0 560 450" role="img" aria-label="Top listening methods and aggregators"></svg>
+          <figcaption><span class="fignum">Figure 6.</span><span class="figtitle">Top listening methods and aggregators</span><span class="fignote">Total = 4,795 listening-method interactions.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="split">
+      <figure class="fig">
+        <svg id="speedArt" viewBox="0 0 520 300" role="img" aria-label="Embedded player playback speed distribution"></svg>
+        <figcaption><span class="fignum">Figure 7.</span><span class="figtitle">Embedded-player playback speed distribution</span><span class="fignote">Share of web-embed sessions, 30 days before capture. After the report’s Figure 3.</span></figcaption>
+      </figure>
+      <figure class="fig">
+        <svg id="weekArt" viewBox="0 0 560 300" role="img" aria-label="Weekly unique listeners, 31 August to 5 October 2026"></svg>
+        <figcaption><span class="fignum">Figure 8.</span><span class="figtitle">Weekly unique listeners, 31 August to 5 October 2026</span><span class="fignote">Share of the month’s listeners shown in the text.</span></figcaption>
+      </figure>
+    </div>
+    <div class="split" style="margin-top:10px">
+      <div class="prose">
+        <p><strong>Speed-listening.</strong> In the 30 days before capture, 23.1% of embedded-player sessions ran faster than normal, and 11.5% at double speed. Experimental work suggests learners can follow lecture material at up to double speed with little loss of comprehension, so accelerated playback fits study-oriented use [1].</p>
+      </div>
+      <div class="prose">
+        <p><strong>Listening follows the academic calendar.</strong> Weekly unique listeners rose 13-fold from 4 to 52 as the autumn term opened, eased to 17, then rebounded to 35 with the climate justice episode. Average monthly downloads peak in April (119) and May (114), when dissertation and examination work is heaviest [1].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODE PERFORMANCE -->
+<section class="chap" id="episodes-perf">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Performance and longevity</span>
+      <h2>An archive, not a feed</h2>
+      <p class="lede">Theory-rich conversations keep gathering listeners for years, the way a key reading does.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x"><svg id="topArt" viewBox="0 0 1000 520" role="img" aria-label="Top ten all-time episodes by downloads, coloured by season"></svg></div>
+      <figcaption><span class="fignum">Figure 9.</span><span class="figtitle">Top 10 all-time episodes by season and theme</span><span class="fignote">All-time downloads. After the report’s Figure 4.</span></figcaption>
+    </figure>
+    <div class="split">
+      <div style="display:grid;gap:18px">
+        <figure class="fig">
+          <svg id="annualArt" viewBox="0 0 480 250" role="img" aria-label="Annual downloads 2023 to 2025"></svg>
+          <figcaption><span class="fignum">Figure 10.</span><span class="figtitle">Annual downloads, 2023 to 2025</span><span class="fignote">From the Listening to Learn manuscript [1].</span></figcaption>
+        </figure>
+        <figure class="fig">
+          <svg id="patternArt" viewBox="0 0 480 250" role="img" aria-label="Launch versus lifetime Apple listeners for two episodes"></svg>
+          <figcaption><span class="fignum">Figure 11.</span><span class="figtitle">Two patterns of success on Apple Podcasts</span><span class="fignote">Launch strength versus longevity.</span></figcaption>
+        </figure>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="prose">
+          <p>Four thematic drivers dominate the all-time top ten: <strong>AI, algorithmic ethics and epistemic pluralism</strong> (Jassal, 294; Surendran, 236); <strong>critical pedagogy and democratic resistance</strong> (Giroux, 245; Huq and Naklib, 225); <strong>youth agency and civic practice</strong> (Bartlett, 262, the fastest-growing episode); and <strong>decoloniality, critical race and human rights foundations</strong> (Showunmi, 255; Starkey, 182; Lakhani, 169).</p>
+          <p>Growth compounds across seasons. Season 1 episodes took years to reach 169 to 182 downloads; Season 4 episodes passed them in a fraction of the time. Annual downloads nearly doubled from 621 in 2023 to 1,183 in 2024 and reached 1,465 in 2025 [1].</p>
+          <p><strong>Two patterns of success.</strong> Episodes tied to live political events launch strongly: the Bangladesh uprising episode reached 17 Apple listeners in 60 days against a catalogue median of 10. Conceptual episodes start slowly but last: the critical pedagogy episode had 7 listeners in its first 60 days and later became the most-listened episode on Apple, with 41. On Apple, 43.5% of listeners are engaged (20 minutes or more) and each averages 6.9 plays [1].</p>
+        </div>
+        <figure class="fig">
+          <svg id="embedArt" viewBox="0 0 480 270" role="img" aria-label="Embedded player direct streams per recent episode"></svg>
+          <figcaption><span class="fignum">Figure 12.</span><span class="figtitle">Embedded-player direct streams per recent episode</span><span class="fignote">5 September to 5 October 2026. After the report’s Figure 5.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 CONTRIBUTIONS -->
+<section class="chap" id="contributions">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Part 3 · Contributions, 2022 to 2026</span>
+      <h2>What the podcast adds to citizenship and human rights education</h2>
+      <p class="lede">Usage, educational, academic and methodological contributions, read together from the audience report [2] and the Listening to Learn study [1].</p>
+    </div>
+    <div class="split">
+      <figure class="fig">
+        <svg id="wheelArt" viewBox="0 0 560 500" role="img" aria-label="Four contributions around citizenship and human rights education"></svg>
+        <figcaption><span class="fignum">Figure 13.</span><span class="figtitle">Four contributions to citizenship and human rights education</span></figcaption>
+      </figure>
+      <div class="contrib">
+        <div class="note"><svg class="blot" data-blot="blue" aria-hidden="true"></svg>
+          <span class="tag">Usage</span>
+          <p>Open, free and cross-border: 5,139 downloads in 99 territories, with a Global South tail in India, the Philippines and Bangladesh. An academic listening ecology (desktop, browser, accelerated playback, term-time peaks) shows the podcast is used as a study resource, and a back catalogue that keeps growing works as a citable repository.</p>
+        </div>
+        <div class="note"><svg class="blot" data-blot="sage" aria-hidden="true"></svg>
+          <span class="tag">Educational</span>
+          <p>Episodes carry scholarly Discourses that usually sit behind paywalls into classrooms and seminars. Voiced testimony moved students toward critical global citizenship, from recognising racism to sponsoring Ukrainian aid. Transcripts, show notes and reading lists make the audio a multimodal text and open access for second-language listeners.</p>
+        </div>
+        <div class="note"><svg class="blot" data-blot="ochre" aria-hidden="true"></svg>
+          <span class="tag">Academic</span>
+          <p>A public scholarship archive of dialogues with leading theorists and practitioners of citizenship, critical pedagogy, peace and human rights. It has produced a new concept, <strong>sonic literacy</strong>, for the literacy field, a journal article under review [1] and an empirical working paper on audience intelligence [2].</p>
+        </div>
+        <div class="note"><svg class="blot" data-blot="clay" aria-hidden="true"></svg>
+          <span class="tag">Methodological</span>
+          <p>Practitioner-based enquiry adapted to the plan, produce, review rhythm of podcasting; macro platform analytics read against micro learner accounts; a rule that a pattern counts only when two platforms support it; and reflexive thematic analysis with producers’ positionality made explicit.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:24px"><svg class="blot" data-blot="paper" aria-hidden="true"></svg>
+      <span class="tag">For citizenship and human rights education specifically</span>
+      <div class="prio" style="margin-top:4px">
+        <div><span class="n">1</span><p>Puts SDG Target 4.7 into practice across national traditions: the same episode was heard differently by Korean students who knew global citizenship from textbooks and US students meeting the term for the first time.</p></div>
+        <div><span class="n">2</span><p>Brings youth movements into the curriculum in their own voices: Bangladesh, Nepal, India, and South Korea after martial law.</p></div>
+        <div><span class="n">3</span><p>Keeps human rights foundations, decolonial thought and anti-racism as evergreen teaching texts that instructors return to each term.</p></div>
+        <div><span class="n">4</span><p>Shows that open access is a beginning: equity needs transcripts, translated summaries, chapter markers and discussion guides that turn availability into capability.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="chap" id="roadmap">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Strategic growth blueprint [2]</span>
+      <h2>From organic broadcast to civic knowledge institute</h2>
+      <p class="lede">Three pillars (capital expansion, omnichannel marketing, content and operational scaling) set out over an 18-month horizon.</p>
+    </div>
+    <figure class="fig">
+      <div class="scroll-x"><svg id="roadArt" viewBox="0 0 1060 380" role="img" aria-label="Three-phase implementation roadmap from Q4 2026 to Q4 2027"></svg></div>
+      <figcaption><span class="fignum">Figure 14.</span><span class="figtitle">Phased implementation roadmap, Q4 2026 to Q4 2027</span><span class="fignote">After the report’s Table 6 [2].</span></figcaption>
+    </figure>
+    <div class="split">
+      <div class="prose">
+        <p>The blueprint proposes thematic mini-series built on proven demand (Algorithmic Justice and Digital Citizenship; Youth Power and Democratic Resistance; Decolonizing the Global University), open-access transcripts with DOIs and citation templates, ID3 chapter markers for speed-listeners, a video-first workflow for YouTube, and an international Student Ambassador Fellowship across the UK, US, South Korea and India.</p>
+      </div>
+      <div class="kv">
+        <div><span>Cumulative downloads target</span><span>15,000+</span></div>
+        <div><span>Per-episode target (30 days)</span><span>500+</span></div>
+        <div><span>University courses assigning episodes</span><span>50+</span></div>
+        <div><span>Countries reached</span><span>110+</span></div>
+        <div><span>Diversified capital target</span><span>$250,000</span></div>
+        <div><span>Episode completion rate</span><span>70%+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 LISTENING TO LEARN -->
+<section class="chap" id="listening">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Part 4 · Research findings [1]</span>
+      <h2>Listening to Learn: Sonic Literacy and Critical Global Citizenship</h2>
+      <p class="lede">Stella Micheong Cheong and Kamille Beye · journal article under review</p>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <p>Literacy research has long privileged print and screen, treating listening as a receptive skill to be measured. The study asks how an open-access academic podcast on citizenship and human rights education mediated the literacy practices of university students in South Korea and the United States, combining a cross-national case study with practitioner inquiry.</p>
+        <p>It triangulates multi-platform analytics (5,140 downloads across 99 territories, from Simplecast, Apple Podcasts Connect and Spotify for Creators) with interviews with <strong>ten student listeners</strong>, six in South Korea and four in the US, each of whom listened to three selected episodes: one on truthful citizenship in a populist era, one on arts-based research and remote ethnography, and one on intersectionality and racial identity.</p>
+        <div class="note"><svg class="blot" data-blot="paper" aria-hidden="true"></svg>
+          <span class="tag">Research questions</span>
+          <ol class="rq">
+            <li>How do students make meaning from academic podcast episodes, and what does listening demand of them as a sonic and multimodal literacy practice?</li>
+            <li>How does podcast listening support or limit critical global literacy, including critical consciousness and intercultural empathy?</li>
+            <li>How does listening connect with wider digital literacy practices, and what do platform analytics reveal about the listening ecology?</li>
+          </ol>
+        </div>
+      </div>
+      <figure class="fig">
+        <svg id="lensArt" viewBox="0 0 560 500" role="img" aria-label="Conceptual lens: four bodies of theory converge on podcast listening as a sonic literacy practice"></svg>
+        <figcaption><span class="fignum">Figure 15.</span><span class="figtitle">Conceptual lens of the study</span><span class="fignote">Four bodies of theory read as one practice [1].</span></figcaption>
+      </figure>
+    </div>
+    <div class="prose" style="max-width:80ch;margin-top:26px">
+      <p><strong>Sonic literacy</strong> is defined as the situated capacity to follow, interpret and critically respond to meaning carried through voice and sound, together with the practices (pausing, re-listening, reading along, searching) that learners use to manage the temporal, fleeting character of the mode. It is one strand of a multimodal repertoire, not a separate skill added to reading.</p>
+    </div>
+
+    <figure class="fig" style="margin-top:30px">
+      <div class="scroll-x"><svg id="pbeArt" viewBox="0 0 1100 560" role="img" aria-label="Practitioner inquiry cycle and triangulation of platform analytics with student interviews"></svg></div>
+      <figcaption><span class="fignum">Figure 16.</span><span class="figtitle">Practitioner inquiry cycle and triangulation of platform analytics with student interviews</span><span class="fignote">Redrawn from the manuscript’s Figure 1 [1].</span></figcaption>
+    </figure>
+
+    <div class="split">
+      <div>
+        <h3 class="tbl-title" style="margin-top:0"><span class="fignum">Table 1.</span> Profile of research participants</h3>
+        <div class="tbl-wrap">
+          <table class="narrow">
+            <thead><tr><th>Pseudonym</th><th>Age</th><th>Gender identified with</th><th>Place of residence</th></tr></thead>
+            <tbody>
+              <tr><td>TKL</td><td>22</td><td>Female</td><td>South Korea</td></tr>
+              <tr><td>YB</td><td>21</td><td>Female</td><td>South Korea</td></tr>
+              <tr><td>YSK</td><td>21</td><td>Female</td><td>South Korea</td></tr>
+              <tr><td>JWC</td><td>23</td><td>Male</td><td>South Korea</td></tr>
+              <tr><td>JWM</td><td>23</td><td>Male</td><td>South Korea</td></tr>
+              <tr><td>MGS</td><td>30</td><td>Male</td><td>South Korea</td></tr>
+              <tr><td>CW</td><td>21</td><td>Female</td><td>United States</td></tr>
+              <tr><td>JW</td><td>22</td><td>Male</td><td>United States</td></tr>
+              <tr><td>AY</td><td>21</td><td>Female</td><td>United States</td></tr>
+              <tr><td>CC</td><td>21</td><td>Female</td><td>United States</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small" style="margin-top:8px">Pseudonyms used throughout; some personal details removed to protect identities.</p>
+      </div>
+      <div class="prose">
+        <h3 style="font-size:1.3rem">Design and analysis</h3>
+        <p>The two lead co-producers adapted the plan, do, review cycle of practitioner-based enquiry to podcast production. Throughout 2024 they held monthly reflection sessions on each new episode and its analytics, then a longer review after ten episodes, from which the three study episodes were chosen.</p>
+        <p>Analytics were exported on 3 and 5 October 2026. Because a Simplecast download is a file request, an Apple play any playback start and a Spotify stream at least 60 seconds of listening, the authors compared patterns rather than summing figures, and treated a pattern as robust only when two platforms supported it.</p>
+        <p>Interviews were analysed by reflexive thematic analysis without a predetermined codebook, producing three themes and nine subthemes. Neither strand was treated as a test of the other: analytics and narratives were read against each other.</p>
+      </div>
+    </div>
+
+    <figure class="fig" style="margin-top:34px">
+      <div class="scroll-x"><svg id="ecoArt" viewBox="0 0 1100 800" role="img" aria-label="Academic listening ecology in four panels: devices, listening methods, top markets, playback speed"></svg></div>
+      <figcaption><span class="fignum">Figure 17.</span><span class="figtitle">Academic listening ecology of the podcast, April 2022 to October 2026</span><span class="fignote">Redrawn from the manuscript’s Figure 2. Darker bars mark categories discussed in the text [1].</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDINGS -->
+<section class="chap" id="findings">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">Findings in detail</span>
+      <h2>Listening was neither easy nor passive</h2>
+      <p class="lede">Three themes from the interviews, read against an academic listening ecology in the analytics.</p>
+    </div>
+
+    <h3 class="tbl-title" style="margin-top:10px"><span class="fignum">Table 2.</span> Themes, subthemes and illustrative extracts from participant interviews</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Theme</th><th>Subtheme</th><th>Illustrative extract</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3">1 · Listening as effortful sonic literacy</td><td>1.1 Affordances of audio: learning on the move</td><td>“I feel like I can listen to them freely and without restrictions” (TKL)</td></tr>
+          <tr><td>1.2 “Information evaporates”: retention in a temporal mode</td><td>“When reading, if I misunderstood something, it was easier to go back to the previous sentence” (YB)</td></tr>
+          <tr><td>1.3 Orchestrating modes: strategies of active listening</td><td>“I tend to go back and listen to the podcast again” (JWM)</td></tr>
+          <tr><td rowspan="3">2 · From soft awareness toward critical global citizenship</td><td>2.1 Confronting racism and systemic inequity</td><td>“I realize that racism is a huge issue in other countries” (TKL)</td></tr>
+          <tr><td>2.2 From abstract concept to lived meaning</td><td>“going beyond even solidarity at a national level” (Korean participant)</td></tr>
+          <tr><td>2.3 Unsettling stereotypes and national narratives</td><td>“very different from the image of China that I had in mind” (Korean participant)</td></tr>
+          <tr><td rowspan="3">3 · Podcasts within a wider digital ecology</td><td>3.1 Extending inquiry through generative AI and search</td><td>“I first use search engines like ChatGPT or Claude ai to get a general idea” (Korean participant)</td></tr>
+          <tr><td>3.2 Critical consumption of digital information</td><td>“it has brought about some changes in my attitude” (participant)</td></tr>
+          <tr><td>3.3 From empathy to civic action</td><td>“After that, I started sponsoring two groups” (MGS)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:8px">N = 10 (six in South Korea, four in the United States). Extracts abbreviated; themes generated through reflexive thematic analysis.</p>
+
+    <div class="three">
+      <div class="note"><svg class="blot" data-blot="blue" aria-hidden="true"></svg>
+        <span class="tag">Theme 1</span>
+        <h4>Listening as effortful sonic literacy</h4>
+        <p>Audio freed learning from fixed places: YB listened “while walking around.” But speech does not wait. Ideas “evaporated more easily,” and CW preferred text because “you can read it over and over again.” Students responded by pausing, re-listening, looking things up and switching to the transcript, which YB called “one of the really essential supplementary resources for non-native speakers.” The transcript let listeners fix in print what sound had carried, and animate with sound what print had flattened.</p>
+        <p>Who could do this was uneven: those comfortable with English transcripts and efficient search turned effort into understanding.</p>
+      </div>
+      <div class="note"><svg class="blot" data-blot="ochre" aria-hidden="true"></svg>
+        <span class="tag">Theme 2</span>
+        <h4>From soft awareness toward critical global citizenship</h4>
+        <p>The intersectionality episode had the strongest effect but worked differently by country. TKL realised she “was a bit insensitive to such issues” yet located racism “in other countries,” a soft orientation. YB worked to understand Black people’s identity struggles from their standpoint, an exercise of narrative imagination. For CW, a biracial US student, the episode named her own experience of microaggressions.</p>
+        <p>Korean students had met global citizenship in textbooks and had it unsettled; most US students met the term for the first time (“I didn’t really know much about it,” AY) and built definitions of their own.</p>
+      </div>
+      <div class="note"><svg class="blot" data-blot="sage" aria-hidden="true"></svg>
+        <span class="tag">Theme 3</span>
+        <h4>Podcasts within a wider digital ecology</h4>
+        <p>Episodes were starting points. One student used generative AI “to get a general idea, and then I Google further.” JWM compared outlets “and then make a decision,” and the truthful-citizens episode gave everyday fact-checking a vocabulary of democratic responsibility.</p>
+        <p>For MGS the chain ran to action: voices from the war in Ukraine moved him to sponsor Razom for Ukraine and the Kyiv Independent, “one of the small but big changes I made while listening to podcasts.”</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <figure class="fig">
+        <svg id="spectrumArt" viewBox="0 0 600 300" role="img" aria-label="Movement from soft toward critical global citizenship as described for selected participants"></svg>
+        <figcaption><span class="fignum">Figure 18.</span><span class="figtitle">From soft toward critical global citizenship</span><span class="fignote">Illustrative placement of accounts described in the findings.</span></figcaption>
+      </figure>
+      <div class="prose">
+        <h3 style="font-size:1.3rem">Three arguments from the discussion</h3>
+        <p><strong>Sound is a semiotic resource for critical literacy.</strong> The temporality that made listening hard gave it force: the presence of a speaker, the texture of a voice, the intimacy of conversation. That force became durable understanding only when listeners could move between modes, so transcripts, search and the pause button are part of the literacy practice itself.</p>
+        <p><strong>Exposure does not equal critical citizenship.</strong> Listening expanded capabilities for self-examination, recognition and narrative imagination, but the direction of change varied. The podcast opened the conversation; turning recognition into structural analysis needs educators’ scaffolding.</p>
+        <p><strong>Access must be converted into digital capital.</strong> Open access solves the first-level divide of cost. A third-level divide in outcomes remains: those with English transcripts, search skill, generative AI and time for seated listening benefit most.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:24px"><svg class="blot" data-blot="clay" aria-hidden="true"></svg>
+      <span class="tag">Design principles for pedagogy</span>
+      <div class="prio" style="margin-top:4px">
+        <div><span class="n">1</span><p>Treat audio as one strand of a multimodal text. Transcripts, chapter markers, glossaries and translated summaries are conditions of access, not extras.</p></div>
+        <div><span class="n">2</span><p>Scaffold the move from recognition to structural analysis: ask Korean students where racism operates in their own society, and US students how their experiences connect to patterns elsewhere.</p></div>
+        <div><span class="n">3</span><p>Teach how platforms curate what is heard, and why a scholarly conversation on racism or populism is harder to find than entertainment.</p></div>
+        <div><span class="n">4</span><p>Pair platform traces with learners’ accounts in research on public digital resources, while staying alert to what metrics cannot see.</p></div>
+      </div>
+    </div>
+    <div class="split" style="margin-top:34px">
+      <p class="quote">A podcast can carry scholarly Discourses across borders and divides, but it expands what learners can do only when access to sound is matched by access to the practices that make sound meaningful.<cite>Listening to Learn, conclusion [1]</cite></p>
+      <div class="prose" style="font-size:.93rem">
+        <p><strong>Limitations.</strong> Ten interested university students cannot represent the wider audience, so findings are analytic rather than statistical generalisations. Platform metrics describe devices and sessions, not intentions, and differ across platforms; speed data cover 30 days. The producers’ dual role may have shaped what participants said, and a single round of listening cannot show change over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="references">
+  <div class="wrap">
+    <div class="chap-head">
+      <span class="eyebrow">References</span>
+      <h2>Main references</h2>
+      <p class="lede">Sources cited in this console, listed alphabetically.</p>
+    </div>
+    <div class="note" style="margin-bottom:22px"><svg class="blot" data-blot="paper" aria-hidden="true"></svg>
+      <span class="tag">Primary sources for this console</span>
+      <p class="refline">[1] Cheong, S. M.-C. &amp; Beye, K. (forthcoming). <i>Listening to Learn: Sonic Literacy and Critical Global Citizenship</i> [Journal under review].</p>
+      <p class="refline">[2] Cheong, S. M.-C. (2026). <i>A Systematic Empirical Analysis of Simplecast User Intelligence, Multi-Channel Audience Growth, and Sustainable Capital Expansion Framework</i> [Working Paper] Crossings.</p>
+    </div>
+    <ol class="refs">
+      <li>Andreotti, V. (2006). Soft versus critical global citizenship education. <i>Policy &amp; Practice: A Development Education Review, 3</i>, 40-51.</li>
+      <li>Arnheim, R. (1936). <i>Radio</i> (M. Ludwig &amp; H. Read, Trans.). Faber &amp; Faber.</li>
+      <li>Berry, R. (2006). Will the iPod kill the radio star? Profiling podcasting as radio. <i>Convergence, 12</i>(2), 143-162. <a href="https://doi.org/10.1177/1354856506066522">https://doi.org/10.1177/1354856506066522</a></li>
+      <li>Berry, R. (2016). Part of the establishment: Reflecting on 10 years of podcasting as an audio medium. <i>Convergence, 22</i>(6), 661-671. <a href="https://doi.org/10.1177/1354856516632105">https://doi.org/10.1177/1354856516632105</a></li>
+      <li>Boix Mansilla, V., &amp; Jackson, A. (2011). <i>Educating for global competence: Preparing our youth to engage the world</i>. Asia Society.</li>
+      <li>Braun, V., &amp; Clarke, V. (2006). Using thematic analysis in psychology. <i>Qualitative Research in Psychology, 3</i>(2), 77-101. <a href="https://doi.org/10.1191/1478088706qp063oa">https://doi.org/10.1191/1478088706qp063oa</a></li>
+      <li>Braun, V., &amp; Clarke, V. (2019). Reflecting on reflexive thematic analysis. <i>Qualitative Research in Sport, Exercise and Health, 11</i>(4), 589-597. <a href="https://doi.org/10.1080/2159676X.2019.1628806">https://doi.org/10.1080/2159676X.2019.1628806</a></li>
+      <li>Calderón-Gómez, D. (2021). The third digital divide and Bourdieu: Bidirectional conversion of economic, cultural, and social capital to (and from) digital capital among young people in Madrid. <i>New Media &amp; Society, 23</i>(9), 2534-2553. <a href="https://doi.org/10.1177/1461444820933252">https://doi.org/10.1177/1461444820933252</a></li>
+      <li>Chan-Olmsted, S., &amp; Wang, R. (2022). Understanding podcast users: Consumption motives and behaviors. <i>New Media &amp; Society, 24</i>(3), 684-704. <a href="https://doi.org/10.1177/1461444820963776">https://doi.org/10.1177/1461444820963776</a></li>
+      <li>Cheong, S. M.-C. (2026). <i>A Systematic Empirical Analysis of Simplecast User Intelligence, Multi-Channel Audience Growth, and Sustainable Capital Expansion Framework</i> [Working Paper]. Crossings.</li>
+      <li>Cheong, S. M.-C., &amp; Beye, K. (forthcoming). <i>Listening to Learn: Sonic Literacy and Critical Global Citizenship</i> [Journal under review].</li>
+      <li>Cho, H. S., &amp; Mosselson, J. (2018). Neoliberal practices amidst social justice orientations: Global citizenship education in South Korea. <i>Compare: A Journal of Comparative and International Education, 48</i>(6), 861-878. <a href="https://doi.org/10.1080/03057925.2017.1364154">https://doi.org/10.1080/03057925.2017.1364154</a></li>
+      <li>Drew, C. (2017). Educational podcasts: A genre analysis. <i>E-Learning and Digital Media, 14</i>(4), 201-211. <a href="https://doi.org/10.1177/2042753017736177">https://doi.org/10.1177/2042753017736177</a></li>
+      <li>Freire, P. (1970). <i>Pedagogy of the oppressed</i> (M. B. Ramos, Trans.). Herder and Herder.</li>
+      <li>Gee, J. P. (2015). <i>Literacy and education</i>. Routledge.</li>
+      <li>Goren, H., &amp; Yemini, M. (2016). Global citizenship education in context: Teacher perceptions at an international school and a local Israeli school. <i>Compare: A Journal of Comparative and International Education, 46</i>(5), 832-853. <a href="https://doi.org/10.1080/03057925.2015.1111752">https://doi.org/10.1080/03057925.2015.1111752</a></li>
+      <li>Heilesen, S. B. (2010). What is the academic efficacy of podcasting? <i>Computers &amp; Education, 55</i>(3), 1063-1068. <a href="https://doi.org/10.1016/j.compedu.2010.05.002">https://doi.org/10.1016/j.compedu.2010.05.002</a></li>
+      <li>Janks, H. (2010). <i>Literacy and power</i>. Routledge.</li>
+      <li>Jewitt, C. (Ed.). (2014). <i>The Routledge handbook of multimodal analysis</i> (2nd ed.). Routledge.</li>
+      <li>Kerrigan, S., &amp; McIntyre, P. (2019). Practitioner centred methodological approaches to creative media practice research. <i>Media Practice and Education, 20</i>(3), 211-231. <a href="https://doi.org/10.1080/25741136.2018.1464733">https://doi.org/10.1080/25741136.2018.1464733</a></li>
+      <li>Kress, G. (2010). <i>Multimodality: A social semiotic approach to contemporary communication</i>. Routledge.</li>
+      <li>Leander, K., &amp; Boldt, G. (2013). Rereading “A pedagogy of multiliteracies”: Bodies, texts, and emergence. <i>Journal of Literacy Research, 45</i>(1), 22-46. <a href="https://doi.org/10.1177/1086296X12468587">https://doi.org/10.1177/1086296X12468587</a></li>
+      <li>Llinares, D., Fox, N., &amp; Berry, R. (Eds.). (2018). <i>Podcasting: New aural cultures and digital media</i>. Palgrave Macmillan.</li>
+      <li>Murphy, D. H., Hoover, K. M., Agadzhanyan, K., Kuehn, J. C., &amp; Castel, A. D. (2022). Learning in double time: The effect of lecture video speed on immediate and delayed comprehension. <i>Applied Cognitive Psychology, 36</i>(1), 69-82. <a href="https://doi.org/10.1002/acp.3899">https://doi.org/10.1002/acp.3899</a></li>
+      <li>Murray, L. (1992). What is practitioner based enquiry? <i>British Journal of In-Service Education, 18</i>(3), 191-196. <a href="https://doi.org/10.1080/0305763920180309">https://doi.org/10.1080/0305763920180309</a></li>
+      <li>New London Group. (1996). A pedagogy of multiliteracies: Designing social futures. <i>Harvard Educational Review, 66</i>(1), 60-92. <a href="https://doi.org/10.17763/haer.66.1.17370n67v22j160u">https://doi.org/10.17763/haer.66.1.17370n67v22j160u</a></li>
+      <li>Nussbaum, M. C. (1997). <i>Cultivating humanity: A classical defense of reform in liberal education</i>. Harvard University Press.</li>
+      <li>Nussbaum, M. C. (2011). <i>Creating capabilities: The human development approach</i>. Belknap Press of Harvard University Press.</li>
+      <li>Osler, A., &amp; Starkey, H. (2005). <i>Changing citizenship: Democracy and inclusion in education</i>. Open University Press.</li>
+      <li>Osler, A., &amp; Starkey, H. (2018). Extending the theory and practice of education for cosmopolitan citizenship. <i>Educational Review, 70</i>(1), 31-40. <a href="https://doi.org/10.1080/00131911.2018.1388616">https://doi.org/10.1080/00131911.2018.1388616</a></li>
+      <li>Papacharissi, Z. (2015). <i>Affective publics: Sentiment, technology, and politics</i>. Oxford University Press.</li>
+      <li>Perks, L. G., Turner, J. S., &amp; Tollison, A. C. (2019). Podcast uses and gratifications scale development. <i>Journal of Broadcasting &amp; Electronic Media, 63</i>(4), 617-634. <a href="https://doi.org/10.1080/08838151.2019.1688817">https://doi.org/10.1080/08838151.2019.1688817</a></li>
+      <li>Persohn, L., &amp; Branson, S. (2025). Scholarly podcasting for research dissemination: A scoping review. <i>SAGE Open, 15</i>(1). <a href="https://doi.org/10.1177/21582440241311694">https://doi.org/10.1177/21582440241311694</a></li>
+      <li>Ragnedda, M. (2017). <i>The third digital divide: A Weberian approach to digital inequalities</i>. Routledge.</li>
+      <li>Sen, A. (1999). <i>Development as freedom</i>. Oxford University Press.</li>
+      <li>Singer, J. B. (2019). Podcasting as social scholarship: A tool to increase the public impact of scholarship and research. <i>Journal of the Society for Social Work and Research, 10</i>(4), 571-590. <a href="https://doi.org/10.1086/706600">https://doi.org/10.1086/706600</a></li>
+      <li>Street, B. V. (1984). <i>Literacy in theory and practice</i>. Cambridge University Press.</li>
+      <li>UNESCO. (2015). <i>Global citizenship education: Topics and learning objectives</i>. UNESCO.</li>
+      <li>van Deursen, A. J. A. M., &amp; van Dijk, J. A. G. M. (2015). Toward a multifaceted model of internet access for understanding digital divides: An empirical investigation. <i>The Information Society, 31</i>(5), 379-391. <a href="https://doi.org/10.1080/01972243.2015.1069770">https://doi.org/10.1080/01972243.2015.1069770</a></li>
+      <li>van Dijk, J. (2020). <i>The digital divide</i>. Polity Press.</li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p style="font-family:var(--f-display);color:var(--ink);font-size:1rem">Conversations4Citizenship Podcast: An Innovative Pedagogical Approach in the field of Citizenship Education</p>
+      <p>Funded by the UniKorea Foundation (재단법인 통일과나눔), 2025 Research Grant Programme. Principal investigator: Dr Stella Micheong Cheong, Yonsei University. Figures and quotations are taken from the Final Report (30 August 2026).</p>
+    </div>
+    <div class="cite-box">
+      <span class="lbl">Crossings</span>
+      <p style="padding-left:0;text-indent:0"><a href="https://www.bridgecitizen.org/">https://www.bridgecitizen.org/</a></p>
+      <p style="padding-left:0;text-indent:0">Co-hosts: Dr Stella Micheong Cheong (Yonsei University), Dr Adam Peter Lang (UCL), Dr Kamille Beye (UCL).</p>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright" style="flex:1">©Copyright 2026 CROSSINGS-All rights reserved</p></div>
+</footer>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg';
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function rnd(seed){let s=seed%2147483647;if(s<=0)s+=2147483646;return()=>((s=s*16807%2147483647)-1)/2147483646;}
+function E(tag,a,p){const e=document.createElementNS(NS,tag);for(const k in (a||{}))e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function T(p,x,y,txt,a){const t=E('text',Object.assign({x,y},a||{}),p);t.textContent=txt;return t;}
+const C=k=>`var(--${k})`;
+function washG(svg,alt){return E('g',{filter:`url(#${alt?'wc2':'wc'})`,class:'wash'},svg);}
+function inkG(svg,w){return E('g',{filter:'url(#ink)',class:'ink','stroke-width':w||1.6},svg);}
+// sketchy rectangle path with slight jitter
+function sk(x,y,w,h,r,j){r=r||rnd(Math.round(x*7+y*13+w*3+h)+1);j=j==null?1.6:j;const q=()=>(r()-.5)*2*j;
+  return `M${x+q()},${y+q()} L${x+w+q()},${y+q()} L${x+w+q()},${y+h+q()} L${x+q()},${y+h+q()} Z`;}
+function skLine(x1,y1,x2,y2,j,seed){const r=rnd(seed||Math.round(x1*3+y1*5+x2*7+y2*11)+3);j=j==null?1.2:j;const mx=(x1+x2)/2+(r()-.5)*j*2,my=(y1+y2)/2+(r()-.5)*j*2;return `M${x1},${y1} Q${mx},${my} ${x2},${y2}`;}
+function blob(cx,cy,rx,ry,seed,n){const r=rnd(seed);n=n||9;let pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const k=.82+r()*.3;pts.push([cx+Math.cos(a)*rx*k,cy+Math.sin(a)*ry*k]);}
+  let d=`M${(pts[0][0]+pts[n-1][0])/2},${(pts[0][1]+pts[n-1][1])/2}`;for(let i=0;i<n;i++){const p=pts[i],q=pts[(i+1)%n];d+=` Q${p[0]},${p[1]} ${(p[0]+q[0])/2},${(p[1]+q[1])/2}`;}return d+'Z';}
+function arcPath(cx,cy,r0,r1,a0,a1){const p=(r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];const L=a1-a0>Math.PI?1:0;const A=p(r1,a0),B=p(r1,a1),Cc=p(r0,a1),D=p(r0,a0);
+  return `M${A} A${r1},${r1} 0 ${L} 1 ${B} L${Cc} A${r0},${r0} 0 ${L} 0 ${D} Z`;}
+
+function paintBlots(){document.querySelectorAll('svg.blot').forEach((s,i)=>{s.innerHTML='';const w=s.clientWidth||300,h=s.clientHeight||160;s.setAttribute('viewBox',`0 0 ${w} ${h}`);s.setAttribute('preserveAspectRatio','none');
+  const k=s.dataset.blot||'paper';const col={paper:'paper-2',ink:'paper-2',slate:'paper-2'}[k]||k;const g=washG(s,i%2);
+  const op={paper:1,ink:1,slate:1}[k]?1:.26;
+  E('path',{d:sk(4,4,w-8,h-8,rnd(i*31+5),5),fill:C(col),'fill-opacity':op},g);
+  if(!{paper:1,ink:1,slate:1}[k]) E('path',{d:blob(w*.82,h*.25,Math.min(70,w*.2),Math.min(46,h*.3),i*17+3),fill:C(col),'fill-opacity':.22},g);
+  const ig=inkG(s,1.1);E('path',{d:sk(4,4,w-8,h-8,rnd(i*7+11),2.2),stroke:k==='ink'?C('ink'):C('rule')},ig);});}
+
+/* generic hand bar chart (horizontal) */
+function hbar(id,rows,o){const s=document.getElementById(id);const W=+s.viewBox.baseVal.width;const L=o.left||170,R=o.right||50,top=o.top||16,bh=o.bh||26,gap=o.gap||14;
+  const max=o.max||100,min=o.min||0;const x=v=>L+(v-min)/(max-min)*(W-L-R);const g=washG(s,o.alt),ig=inkG(s,1.3);
+  if(o.ticks){o.ticks.forEach(t=>{E('path',{d:`M${x(t)},${top-4} L${x(t)},${top+rows.length*(bh+gap)}`,stroke:C('rule'),'stroke-dasharray':'2 5','stroke-width':1},s);T(s,x(t),top+rows.length*(bh+gap)+16,o.tfmt?o.tfmt(t):String(t),{'text-anchor':'middle','font-size':13,class:'muted'});});}
+  rows.forEach((r,i)=>{const y=top+i*(bh+gap);E('path',{d:sk(x(min),y,x(r.v)-x(min),bh,null,2),fill:C(r.c||'clay'),'fill-opacity':r.op||.6},g);
+    E('path',{d:skLine(x(min),y+bh,x(r.v),y+bh+.5,1,i+5),'stroke-width':1.1},ig);
+    if(r.sd){E('path',{d:`M${x(Math.max(min,r.v-r.sd))},${y+bh/2} L${x(Math.min(max,r.v+r.sd))},${y+bh/2}`,'stroke-width':1,stroke:C('ink-2')},ig);}
+    T(s,L-10,y+bh/2+5,r.l,{'text-anchor':'end','font-size':o.fs||15,class:r.lc||''});
+    T(s,x(r.v)+(r.sd?6:8),y+bh/2+(r.sd?-6:5),o.fmt?o.fmt(r.v):String(r.v),{'font-size':15,'font-weight':700});});
+  return {s,x,g,ig};}
+
+
+/* ---------- C4C page charts ---------- */
+const fmtN=v=>Math.round(v).toLocaleString('en-GB');
+const SEAS={1:'slate',2:'sage',3:'blue',4:'clay',5:'ochre'};
+
+/* stat tiles */
+(function(){const d=[['5,139','downloads, all time','clay'],['99','countries and territories','ochre'],['44','episodes over five seasons','sage'],['45.6%','of downloads on desktop','blue']];
+  const box=document.getElementById('statTiles');d.forEach(([v,k,c])=>{const t=document.createElement('div');t.className='stat';
+    t.innerHTML=`<svg class="blot" data-blot="${c}" aria-hidden="true"></svg><span class="v num">${v}</span><span class="k">${k}</span>`;box.appendChild(t);});})();
+
+/* theme clusters */
+(function(){const s=document.getElementById('themeArt');const g=washG(s),ig=inkG(s,1.3);
+  const cl=[[150,120,'blue','AI, ethics and','epistemic pluralism',['Jassal 294','Surendran 236']],
+            [415,120,'clay','Critical pedagogy and','democratic resistance',['Giroux 245','Huq and Naklib 225']],
+            [150,305,'ochre','Youth agency and','civic practice',['Bartlett 262','Korea, Nepal, India']],
+            [415,305,'sage','Decoloniality, race and','human rights foundations',['Showunmi 255','Starkey 182 · Lakhani 169']]];
+  cl.forEach(([x,y,c,a,b,ep],i)=>{E('path',{d:blob(x,y,125,82,i*11+3,11),fill:C(c),'fill-opacity':.42},g);E('path',{d:blob(x,y,125,82,i*11+4,11),'stroke-width':1.1},ig);
+    T(s,x,y-26,a,{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':650});T(s,x,y-6,b,{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':650});
+    ep.forEach((e,j)=>T(s,x,y+22+j*20,e,{'text-anchor':'middle','font-size':15,class:'mid'}));});
+  E('path',{d:blob(282,212,58,40,77,9),fill:C('paper'),'fill-opacity':1},g);E('path',{d:blob(282,212,58,40,78,9),'stroke-width':1.4},ig);
+  T(s,282,208,'citizenship and',{'text-anchor':'middle','font-size':14});T(s,282,226,'human rights',{'text-anchor':'middle','font-size':14});
+  T(s,280,410,'downloads shown are all-time totals for the leading episodes',{'text-anchor':'middle','font-size':13,class:'muted'});})();
+
+/* timeline */
+(function(){const s=document.getElementById('timelineArt');const g=washG(s,1),ig=inkG(s,1.5);
+  const X0=40,X1=1020,y=180;const yrs=[2022,2023,2024,2025,2026];const X=t=>X0+(t-2022)/(2026.95-2022)*(X1-X0);
+  E('path',{d:`M${X0},${y} C${X0+300},${y-14} ${X1-400},${y+16} ${X1},${y}`,'stroke-width':2.6},ig);
+  yrs.forEach(yr=>{E('path',{d:`M${X(yr)},${y-8} L${X(yr)},${y+8}`,'stroke-width':1.4},ig);T(s,X(yr)+4,y+28,String(yr),{'font-size':16,'font-weight':700});});
+  const seasons=[[2022.35,2022.95,'1','Season 1','slate'],[2023.05,2023.9,'2','Season 2','sage'],[2024.0,2024.99,'3','Season 3','blue'],[2025.25,2025.95,'4','Season 4','clay'],[2026.0,2026.85,'5','2026 (Eps 40 to 44)','ochre']];
+  seasons.forEach(([a,b,n,l,c],i)=>{E('path',{d:sk(X(a),y-24,X(b)-X(a),48,null,4),fill:C(c),'fill-opacity':.45},g);T(s,(X(a)+X(b))/2,y+5,l,{'text-anchor':'middle',class:'t-serif','font-size':15,'font-weight':650});});
+  const ev=[[2022.37,'Launch, spring 2022',-1,1],[2022.6,'Starkey · Hong · Lakhani',1,1],[2023.3,'Showunmi: intersectionality',-1,1],[2024.25,'Giroux · Leavy · Jassal',1,1],[2024.75,'Huq & Naklib · Stitzlein',-1,1],[2024.97,'Arai · year in review',1,2],[2025.26,'Korea after martial law',-1,2],[2025.45,'Surendran · Bartlett',1,1],[2026.54,'Fellner · McCowan',-1,1],[2026.8,'Shome (1 Oct 2026)',1,2]];
+  ev.forEach(([t,l,d,lv],i)=>{const off=lv===1?70:112;const yy=d<0?y-off:y+off+8;E('path',{d:skLine(X(t),d<0?y-26:y+26,X(t),d<0?yy+8:yy-16,1.5,i+5),'stroke-width':1.1},ig);
+    E('path',{d:blob(X(t),d<0?y-26:y+26,5,5,i+40,7),fill:C('ink'),'fill-opacity':.85},g);T(s,X(t),yy,l,{'text-anchor':'middle','font-size':14.5});});
+  T(s,X0,30,'Annual downloads: 621 (2023) · 1,183 (2024) · 1,465 (2025)',{'font-size':14,class:'muted'});})();
+
+/* geography bars */
+hbar('geoArt',[['United Kingdom',1161],['United States',1096],['South Korea',879],['India',300],['Canada',267],['Philippines',145],['Japan',142],['Germany',116],['Australia',85],['Bangladesh',75]].map(([l,v],i)=>({l,v,c:i<3?'blue':'ochre',op:i<3?.7:.5})),
+  {left:130,right:110,max:1400,ticks:[0,350,700,1050,1400],tfmt:fmtN,bh:28,gap:13,top:8,fmt:v=>`${fmtN(v)} (${(v/5139*100).toFixed(1)}%)`});
+
+/* donut */
+(function(){const s=document.getElementById('donutArt');const d=[['United Kingdom',22.6,'blue'],['United States',21.3,'slate'],['South Korea',17.1,'teal'],['India',5.8,'ochre'],['Canada',5.2,'clay'],['Rest of world (94)',27.9,'paper-2']];
+  const cx=160,cy=165,r1=135,r0=74;let a=-Math.PI/2;const g=washG(s),ig=inkG(s,1.3);
+  d.forEach(([l,v,c])=>{const a1=a+v/100*Math.PI*2;E('path',{d:arcPath(cx,cy,r0,r1,a+.012,a1-.012),fill:C(c),'fill-opacity':c==='paper-2'?1:.6},g);a=a1;});
+  E('circle',{cx,cy,r:r1+2},ig);E('circle',{cx,cy,r:r0-2},ig);
+  T(s,cx,cy-2,'61.0%',{'text-anchor':'middle',class:'t-serif','font-size':28,'font-weight':650});T(s,cx,cy+20,'UK + US + KR',{'text-anchor':'middle','font-size':13,class:'mid'});
+  d.forEach(([l,v,c],i)=>{const y=50+i*44;const lg=washG(s,1);E('path',{d:blob(330,y-6,11,10,i*5+2,7),fill:C(c),'fill-opacity':c==='paper-2'?1:.8},lg);E('circle',{cx:330,cy:y-6,r:10,fill:'none',stroke:C('rule')},s);
+    T(s,350,y,l,{'font-size':16});T(s,350,y+18,v.toFixed(1)+'%',{'font-size':13.5,class:'muted'});});})();
+
+/* device */
+hbar('deviceArt',[{l:'Desktop',v:1371,c:'blue',op:.75},{l:'Phone',v:1260,c:'slate',op:.55},{l:'Tablet',v:361,c:'teal',op:.55},{l:'Smart speaker',v:14,c:'ochre'}],
+  {left:120,right:110,max:1600,ticks:[0,400,800,1200,1600],tfmt:fmtN,bh:28,gap:14,top:6,fmt:v=>`${fmtN(v)} (${(v/3006*100).toFixed(1)}%)`});
+
+/* methods */
+hbar('methodArt',[['Apple Podcasts',1979,'plum'],['Simplecast Web Player',1347,'teal'],['Spotify',482,'sage'],['Chrome browser',384,'blue'],['Podcast & Radio Addict',81,'slate'],['Facebook (in-app)',79,'blue'],['LinkedIn (in-app)',73,'blue'],['MS Edge browser',57,'slate'],['Mobile Safari',51,'slate'],['Other apps and browsers',262,'paper-2']].map(([l,v,c])=>({l,v,c,op:c==='paper-2'?1:.6})),
+  {left:180,right:100,max:2400,ticks:[0,600,1200,1800,2400],tfmt:fmtN,bh:26,gap:12,top:6,fs:14,fmt:v=>`${fmtN(v)} (${(v/4795*100).toFixed(1)}%)`});
+
+/* vertical bars helper */
+function vbar(id,rows,o){const s=document.getElementById(id);const W=+s.viewBox.baseVal.width,H=+s.viewBox.baseVal.height;const L=o.left||50,R=o.right||20,top=o.top||30,bot=o.bot||46;
+  const y=v=>H-bot-(v/o.max)*(H-bot-top);const bw=(W-L-R)/rows.length;const g=washG(s,o.alt),ig=inkG(s,1.3);
+  (o.ticks||[]).forEach(t=>{E('path',{d:`M${L},${y(t)} L${W-R},${y(t)}`,stroke:C('rule'),'stroke-dasharray':'2 5'},s);T(s,L-8,y(t)+4,o.tfmt?o.tfmt(t):String(t),{'text-anchor':'end','font-size':12.5,class:'muted'});});
+  E('path',{d:`M${L},${H-bot} L${W-R},${H-bot}`,'stroke-width':1.3},ig);
+  rows.forEach((r,i)=>{const x=L+i*bw+bw*.18,w=bw*.64;if(r.v>0)E('path',{d:sk(x,y(r.v),w,H-bot-y(r.v),null,2),fill:C(r.c||'clay'),'fill-opacity':r.op||.65},g);
+    T(s,x+w/2,y(r.v)-8,o.fmt?o.fmt(r.v):String(r.v),{'text-anchor':'middle','font-size':15,'font-weight':700});
+    (Array.isArray(r.l)?r.l:[r.l]).forEach((ln,j)=>T(s,x+w/2,H-bot+20+j*16,ln,{'text-anchor':'middle','font-size':13.5,class:'mid'}));});return {s,y};}
+
+const sp=vbar('speedArt',[{l:['1.0x','standard'],v:76.92,c:'slate',op:.5},{l:['1.2x','brisk'],v:7.69,c:'blue'},{l:['1.5x','accelerated'],v:3.85,c:'ochre'},{l:['2.0x','double'],v:11.54,c:'clay',op:.8}],{max:90,ticks:[0,20,40,60,80],tfmt:v=>v+'%',fmt:v=>v.toFixed(1)+'%',top:20,bot:52});
+T(sp.s,300,60,'faster than 1.0x: 23.1% of sessions',{'font-size':15,'font-weight':700,fill:C('clay-ink')});
+
+/* weekly line */
+(function(){const s=document.getElementById('weekArt');const d=[['Aug 31',4],['Sep 7',21],['Sep 14',52],['Sep 21',17],['Sep 28',35],['Oct 5*',3]];
+  const L=50,R=530,top=30,bot=250;const X=i=>L+i*(R-L)/5,Y=v=>bot-v/60*(bot-top);const g=washG(s),ig=inkG(s,2.2);
+  [0,20,40,60].forEach(t=>{E('path',{d:`M${L},${Y(t)} L${R},${Y(t)}`,stroke:C('rule'),'stroke-dasharray':'2 5'},s);T(s,L-8,Y(t)+4,String(t),{'text-anchor':'end','font-size':12.5,class:'muted'});});
+  let area=`M${X(0)},${Y(0)}`;d.forEach((p,i)=>area+=` L${X(i)},${Y(p[1])}`);area+=` L${X(5)},${Y(0)} Z`;E('path',{d:area,fill:C('blue'),'fill-opacity':.3},g);
+  let ln='';d.forEach((p,i)=>ln+=(i?' L':'M')+X(i)+','+Y(p[1]));E('path',{d:ln,stroke:C('blue-ink')},ig);
+  d.forEach((p,i)=>{E('path',{d:blob(X(i),Y(p[1]),7,7,i+3,7),fill:C('blue')},g);T(s,X(i),Y(p[1])-13,String(p[1]),{'text-anchor':'middle','font-size':15,'font-weight':700});T(s,X(i),bot+20,p[0],{'text-anchor':'middle','font-size':13,class:'muted'});});
+  T(s,X(2)+14,Y(52)+6,'term opens · 39.7% of the month',{'font-size':13.5,fill:C('clay-ink')});
+  T(s,X(4)+10,Y(35)-26,'Ep 43 release',{'font-size':13.5,fill:C('clay-ink'),'text-anchor':'middle'});
+  T(s,L,290,'* partial week, single day of logging',{'font-size':12.5,class:'muted'});})();
+
+/* top 10 episodes */
+(function(){const rows=[['Ep 7 (S3) · AI for peace and sustainability (Jassal, India)',294,3],['Ep 3 (S4) · Youth agency and school budgeting (Dr Bartlett)',262,4],['Ep 1 (S2) · Intersectionality in education (Dr Showunmi)',255,2],['Ep 2 (S3) · Pedagogy of resistance (Dr Giroux)',245,3],['Ep 2 (S4) · Vygotsky, AI ethics and pluralism (Dr Surendran)',236,4],['Ep 9 (S3) · Bangladesh democratic uprising (Huq & Naklib)',225,3],['Ep 3 (S1) · International law and human rights (Hong)',182,1],['Ep 2 (S1) · Citizenship education (Prof. Starkey)',182,1],['Ep 3 (S3) · Arts-based research and social change (Dr Leavy)',181,3],['Ep 9 (S1) · Decoloniality and teacher agency (Lakhani)',169,1]];
+  const o=hbar('topArt',rows.map(([l,v,se])=>({l,v,c:SEAS[se],op:.6})),{left:450,right:60,max:300,ticks:[0,50,100,150,200,250,300],bh:30,gap:13,top:8,fs:15,fmt:v=>v+' dl'});
+  const s=o.s;[[1,'Season 1 · foundational human rights'],[2,'Season 2 · equity and inclusion'],[3,'Season 3 · AI and activism'],[4,'Season 4 · current momentum']].forEach(([se,l],i)=>{const x=40+i*240,y=505;const lg=washG(s,1);E('path',{d:blob(x,y-5,9,8,se+20,7),fill:C(SEAS[se])},lg);T(s,x+14,y,l,{'font-size':14,class:'mid'});});})();
+
+/* annual */
+vbar('annualArt',[{l:'2023',v:621,c:'sage'},{l:'2024',v:1183,c:'sage',op:.75},{l:'2025',v:1465,c:'sage',op:.9}],{max:1600,ticks:[0,400,800,1200,1600],tfmt:fmtN,fmt:fmtN,left:56,top:20,bot:40});
+
+/* two patterns */
+(function(){const s=document.getElementById('patternArt');const L=170,R=440,x=v=>L+v/45*(R-L);const g=washG(s),ig=inkG(s,1.3);
+  [0,10,20,30,40].forEach(t=>{E('path',{d:`M${x(t)},20 L${x(t)},180`,stroke:C('rule'),'stroke-dasharray':'2 5'},s);T(s,x(t),198,String(t),{'text-anchor':'middle','font-size':12.5,class:'muted'});});
+  E('path',{d:`M${x(10)},14 L${x(10)},184`,stroke:C('ink-3'),'stroke-width':1.2,'stroke-dasharray':'5 4'},s);T(s,x(10)+4,12,'catalogue median at 60 days: 10',{'font-size':12.5,class:'muted'});
+  [['Bangladesh uprising',17,null,'clay'],['Critical pedagogy',7,41,'blue']].forEach(([n,a,b,c],i)=>{const y=60+i*72;T(s,L-10,y+5,n,{'text-anchor':'end','font-size':15});
+    E('path',{d:sk(x(0),y-12,x(a)-x(0),24,null,2),fill:C(c),'fill-opacity':.7},g);T(s,x(a)+6,y+5,`${a} in 60 days`,{'font-size':13.5,'font-weight':700});
+    if(b){E('path',{d:sk(x(0),y+16,x(b)-x(0),14,null,2),fill:C(c),'fill-opacity':.3},g);T(s,x(0),y+48,`${b} lifetime listeners, later the most-listened episode on Apple`,{'font-size':13.5,'font-weight':700,fill:C('blue-ink')});}});
+  T(s,L-160,240,'Apple Podcasts listeners',{'font-size':13,class:'muted'});})();
+
+/* embed streams */
+vbar('embedArt',[{l:['Ep 44','Shome'],v:4,c:'slate'},{l:['Ep 43','McCowan'],v:3,c:'blue'},{l:['Ep 42','Fellner'],v:2,c:'teal'},{l:['Ep 41','Nepal'],v:1,c:'ochre'},{l:['Ep 40','Katayama'],v:0,c:'clay'}],{max:5,ticks:[0,1,2,3,4,5],left:40,top:20,bot:52});
+
+/* contributions wheel */
+(function(){const s=document.getElementById('wheelArt');const g=washG(s),ig=inkG(s,1.4);const cx=280,cy=250;
+  const q=[['Usage','open global reach',-1,-1,'blue'],['Educational','multimodal teaching text',1,-1,'sage'],['Methodological','practitioner enquiry',-1,1,'clay'],['Academic','public scholarship',1,1,'ochre']];
+  q.forEach(([a,b,dx,dy,c],i)=>{const x=cx+dx*125,y=cy+dy*120;E('path',{d:blob(x,y,120,100,i*9+5,11),fill:C(c),'fill-opacity':.45},g);E('path',{d:blob(x,y,120,100,i*9+6,11),'stroke-width':1.1},ig);
+    T(s,x+dx*20,y+dy*20-6,a,{'text-anchor':'middle',class:'t-serif','font-size':21,'font-weight':650});T(s,x+dx*20,y+dy*20+16,b,{'text-anchor':'middle','font-size':15,class:'mid'});});
+  E('path',{d:blob(cx,cy,92,62,91,10),fill:C('paper'),'fill-opacity':1},g);E('path',{d:blob(cx,cy,92,62,92,10),'stroke-width':1.6},ig);
+  T(s,cx,cy-10,'citizenship and',{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':650});T(s,cx,cy+12,'human rights',{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':650});T(s,cx,cy+32,'education',{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':650});})();
+
+/* roadmap */
+(function(){const s=document.getElementById('roadArt');const g=washG(s,1),ig=inkG(s,1.4);
+  const ph=[['Phase 1 · Months 1 to 3','Q4 2026','sage',['Desktop web portal and syllabus guides','DOIs for the top 10 episodes','AI transcripts and ID3 chapters','Student Ambassador Fellowship (4 fellows)','Guest media kits']],
+            ['Phase 2 · Months 4 to 8','Q1 to Q2 2027','ochre',['Video-first workflow and YouTube channel','3 grant applications (Spencer, ESRC, British Academy)','“Citizenship Commons” membership','Mini-series: Algorithmic Justice']],
+            ['Phase 3 · Months 9 to 18','Q3 to Q4 2027','clay',['University consortium (UCL, SNU, Glasgow, Columbia)','Korean-English and South Asian series','Mini-series: Youth Power; Decolonizing the University','Annual virtual symposium and report']]];
+  ph.forEach(([t,q,c,items],i)=>{const x=20+i*345,w=325;E('path',{d:sk(x,40,w,320,null,5),fill:C(c),'fill-opacity':.3},g);E('path',{d:sk(x,40,w,320,null,2)},ig);
+    T(s,x+16,72,t,{class:'t-serif','font-size':18,'font-weight':650});T(s,x+16,94,q,{'font-size':15,fill:C('clay-ink')});
+    items.forEach((it,j)=>{E('path',{d:blob(x+22,128+j*48,4,4,i*9+j,7),fill:C('ink')},g);
+      const words=it.split(' ');let line='',lines=[];words.forEach(wd=>{if((line+wd).length>36){lines.push(line.trim());line=''}line+=wd+' ';});lines.push(line.trim());
+      lines.forEach((ln,k)=>T(s,x+34,133+j*48+k*18,ln,{'font-size':14.5}));});
+    if(i<2)E('path',{d:skLine(x+w+2,200,x+w+18,200,1,i+3),'marker-end':'url(#arrow)','stroke-width':1.6},ig);});})();
+
+/* conceptual lens */
+(function(){const s=document.getElementById('lensArt');const g=washG(s),ig=inkG(s,1.3);const cx=280,cy=255;
+  const p=[['Literacy as social practice','Street; Gee; Janks',140,90,'blue'],['Sound as a semiotic mode','Kress; Jewitt; Arnheim',420,90,'sage'],['Critical global citizenship','Andreotti; Freire; Nussbaum',140,420,'clay'],['Digital capital','Ragnedda; van Dijk',420,420,'ochre']];
+  p.forEach(([a,b,x,y,c],i)=>{E('path',{d:blob(x,y,128,62,i*7+2,10),fill:C(c),'fill-opacity':.45},g);T(s,x,y-4,a,{'text-anchor':'middle',class:'t-serif','font-size':16,'font-weight':650});T(s,x,y+18,b,{'text-anchor':'middle','font-size':14,class:'mid'});
+    E('path',{d:skLine(x+(cx-x)*.42,y+(cy-y)*.42,x+(cx-x)*.7,y+(cy-y)*.7,3,i+9),'marker-end':'url(#arrow)','stroke-width':1.4},ig);});
+  E('path',{d:blob(cx,cy,118,72,55,11),fill:C('teal'),'fill-opacity':.35},g);E('path',{d:blob(cx,cy,118,72,56,11),'stroke-width':1.6},ig);
+  T(s,cx,cy-14,'Podcast listening as',{'text-anchor':'middle','font-size':15,class:'mid'});T(s,cx,cy+10,'sonic literacy',{'text-anchor':'middle',class:'t-serif','font-size':24,'font-weight':650});T(s,cx,cy+32,'practice',{'text-anchor':'middle','font-size':15,class:'mid'});})();
+
+/* practitioner inquiry figure */
+(function(){const s=document.getElementById('pbeArt');const g=washG(s),g2=washG(s,1),ig=inkG(s,1.5);
+  T(s,20,30,'PRACTITIONER INQUIRY, 2024',{'font-size':15,class:'muted','font-weight':700});T(s,410,30,'DATA SOURCES',{'font-size':15,class:'muted','font-weight':700});T(s,760,30,'ANALYSIS AND INTEGRATION',{'font-size':15,class:'muted','font-weight':700});
+  const cx=190,cy=280,r=120;E('path',{d:`M${cx-r},${cy} A${r},${r} 0 1 1 ${cx+r},${cy} A${r},${r} 0 1 1 ${cx-r},${cy}`,stroke:C('rule'),'stroke-width':12},ig);
+  [['PLAN',-90,'episode design,','guest selection'],['PRODUCE',30,'record, edit,','publish'],['REVIEW',150,'monthly reflection','sessions']].forEach(([n,a,l1,l2],i)=>{const x=cx+r*Math.cos(a*Math.PI/180),y=cy+r*Math.sin(a*Math.PI/180);
+    E('path',{d:blob(x,y,46,46,i+61,10),fill:C(['blue','sage','clay'][i]),'fill-opacity':.75},g);T(s,x,y+6,n,{'text-anchor':'middle',class:'t-serif','font-size':16,'font-weight':700});
+    const ly=i===0?y-64:y+70;T(s,x,ly,l1,{'text-anchor':'middle','font-size':14,class:'mid'});T(s,x,ly+17,l2,{'text-anchor':'middle','font-size':14,class:'mid'});});
+  T(s,cx,cy-6,'plan, produce, review',{'text-anchor':'middle','font-size':15});T(s,cx,cy+14,'adapted to podcasting',{'text-anchor':'middle','font-size':15});
+  const src=[['1  Production archive','audio, show notes, transcripts','paper-2'],['2  Practitioner records','meeting notes, reflection memos','paper-2'],['3  Platform analytics','Simplecast, Apple, Spotify (2022 to 2026)','ochre'],['4  Student interviews','n = 10 (6 South Korea, 4 US)','teal']];
+  src.forEach(([a,b,c],i)=>{const y=55+i*112;E('path',{d:sk(410,y,300,88,null,3),fill:C(c),'fill-opacity':c==='paper-2'?1:.4},i%2?g:g2);E('path',{d:sk(410,y,300,88,null,1.5)},ig);
+    T(s,426,y+32,a,{class:'t-serif','font-size':17,'font-weight':650});T(s,426,y+60,b,{'font-size':14.5,class:'mid'});
+    E('path',{d:skLine(318,280,404,y+44,3,i+30),'stroke-width':1.1},ig);});
+  const an=[['Macro: listening ecology','reach, device, channel, speed, longevity',70,'blue'],['Micro: meaning-making','reflexive thematic analysis, 3 themes, 9 subthemes',245,'sage'],['Triangulated interpretation','analytics and narratives read against each other',410,'clay']];
+  an.forEach(([a,b,y,c],i)=>{E('path',{d:sk(760,y,320,100,null,3),fill:C(c),'fill-opacity':.4},i%2?g:g2);E('path',{d:sk(760,y,320,100,null,1.5)},ig);
+    T(s,776,y+36,a,{class:'t-serif','font-size':17,'font-weight':650});const w=b.split(' ');const h=Math.ceil(w.length/2);T(s,776,y+62,w.slice(0,h).join(' '),{'font-size':14.5,class:'mid'});T(s,776,y+80,w.slice(h).join(' '),{'font-size':14.5,class:'mid'});});
+  [[0,70],[1,70],[2,70],[3,245]].forEach(([i,y],k)=>E('path',{d:skLine(712,99+i*112,756,y+50,3,k+50),'marker-end':'url(#arrow)','stroke-width':1.2},ig));
+  E('path',{d:'M920,174 L920,241','marker-end':'url(#arrow)','marker-start':'url(#arrow)','stroke-width':1.3},ig);T(s,930,212,'compare',{'font-size':14,class:'muted'});
+  E('path',{d:'M920,349 L920,406','marker-end':'url(#arrow)','stroke-width':1.3},ig);
+  T(s,20,545,'Neither strand was treated as a test of the other: platform analytics served as proxy indicators of reach and practice; interviews supplied learners’ own accounts.',{'font-size':14,class:'muted'});})();
+
+/* listening ecology four panels */
+(function(){const s=document.getElementById('ecoArt');
+  function panel(ox,oy,letter,title,sub,rows,max,ticks,fmt,note){const g=washG(s),ig=inkG(s,1.2);
+    E('path',{d:blob(ox+16,oy+14,16,15,letter.charCodeAt(0),7),fill:C('ink'),'fill-opacity':.9},g);T(s,ox+16,oy+20,letter,{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':700,fill:C('paper')});
+    T(s,ox+44,oy+18,title,{class:'t-serif','font-size':18,'font-weight':650});T(s,ox+44,oy+40,sub,{'font-size':13.5,class:'muted'});
+    const L=ox+150,R=ox+500,top=oy+62,bh=Math.min(30,260/rows.length-10),gap=(300-rows.length*bh)/rows.length;const x=v=>L+v/max*(R-L);
+    ticks.forEach(t=>{E('path',{d:`M${x(t)},${top-6} L${x(t)},${top+rows.length*(bh+gap)}`,stroke:C('rule'),'stroke-dasharray':'2 5'},s);T(s,x(t),top+rows.length*(bh+gap)+16,String(t),{'text-anchor':'middle','font-size':12,class:'muted'});});
+    rows.forEach(([l,v,dark],i)=>{const y=top+i*(bh+gap);E('path',{d:sk(L,y,x(v)-L,bh,null,1.6),fill:C(dark?'slate':'paper-2'),'fill-opacity':dark?.8:1},g);E('path',{d:sk(L,y,x(v)-L,bh,null,1)},ig);
+      T(s,L-8,y+bh/2+5,l,{'text-anchor':'end','font-size':14.5});T(s,x(v)+6,y+bh/2+5,fmt(v),{'font-size':14,'font-weight':700});});
+    if(note){T(s,R-4,top+rows.length*(bh+gap)-30,note[0],{'text-anchor':'end','font-size':13.5,fill:C('clay-ink')});T(s,R-4,top+rows.length*(bh+gap)-12,note[1],{'text-anchor':'end','font-size':13.5,fill:C('clay-ink'),'font-weight':700});}}
+  const pc=v=>v.toFixed(1)+'%';
+  panel(10,10,'A','Desktop listening leads mobile','Device class, share of downloads (n = 3,006)',[['Desktop',45.6,1],['Phone',41.9],['Tablet',12.0],['Smart speaker',0.5]],60,[0,20,40,60],pc);
+  panel(560,10,'B','Browsers carry over a third of listening','Listening method, share of downloads (n = 4,795)',[['Apple Podcasts',41.3],['Web player',28.1,1],['Spotify',10.1],['Chrome browser',8.0,1],['All other',12.5]],50,[0,25,50],pc,['web player + desktop browsers','= 38.6%']);
+  panel(10,410,'C','A tri-continental core, Global South tail','Top markets, share of downloads (N = 5,140; 99 territories)',[['United Kingdom',22.6,1],['United States',21.3,1],['South Korea',17.1,1],['India',5.8],['Canada',5.2],['Philippines',2.8],['Japan',2.8],['Bangladesh',1.5]],30,[0,10,20,30],pc,['UK + US + South Korea','= 61.0%']);
+  panel(560,410,'D','Nearly one in four sessions is sped up','Embed-player speed, share of sessions (30 days)',[['1.0x',76.9],['1.2x',7.7,1],['1.5x',3.8,1],['2.0x',11.5,1]],80,[0,40,80],pc,['faster than 1.0x','= 23.1%']);})();
+
+/* soft to critical spectrum */
+(function(){const s=document.getElementById('spectrumArt');const g=washG(s),ig=inkG(s,1.6);const L=40,R=560,y=140;
+  E('path',{d:`M${L},${y-20} L${R},${y-34} L${R},${y+34} L${L},${y+20} Z`,fill:C('ochre'),'fill-opacity':.25},g);
+  E('path',{d:`M${L},${y} L${R},${y}`,'marker-end':'url(#arrow)','stroke-width':2},ig);
+  T(s,L,y+112,'← soft global citizenship',{'font-size':15,class:'mid'});T(s,R,y+112,'critical consciousness and action →',{'font-size':15,class:'mid','text-anchor':'end'});
+  const pts=[[0.14,'TKL','racism “in other countries”',-1,'blue'],[0.42,'YB','narrative imagination',1,'sage'],[0.66,'CW','names her own experience',-1,'clay'],[0.9,'MGS','sponsors two groups',1,'teal']];
+  pts.forEach(([t,n,l,d,c],i)=>{const x=L+t*(R-L);E('path',{d:blob(x,y,13,13,i+70,8),fill:C(c),'fill-opacity':.9},g);
+    T(s,x,y+d*44,n,{'text-anchor':'middle',class:'t-serif','font-size':17,'font-weight':700});T(s,x,y+d*44+(d<0?-20:18),l,{'text-anchor':'middle','font-size':14,class:'mid'});});
+  T(s,L,24,'Positions as described in the paper’s Theme 2 and 3 accounts (illustrative, not measured)',{'font-size':13,class:'muted'});})();
+
+paintBlots();
+let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(paintBlots,200);});
+})();</script>
+
+</body>
+</html>
